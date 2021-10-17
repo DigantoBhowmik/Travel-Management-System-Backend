@@ -1,0 +1,12 @@
+#custom-nav {  
+    box-shadow: 5px 5px 20px gray;
+} 
+nav a{
+    font-size: 15px;
+    color: black;
+}
+nav a:hover{
+    box-shadow: inset 0 100px 0 0 rgb(125, 125, 253);
+    border-radius: 5px;
+    color: cornsilk;
+}
