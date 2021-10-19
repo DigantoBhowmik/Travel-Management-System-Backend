@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pageController;
+use App\Http\Controllers\registerController;
+use App\Http\Controllers\loginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +16,13 @@ use App\Http\Controllers\pageController;
 */
 
 Route::get('/', [pageController::class, 'home'])->name('home');
-Route::get('/login', [pageController::class, 'login'])->name('login');
-Route::get('/register', [pageController::class, 'register'])->name('register');
-Route::get('/project-login', 'LoginController@index')->name('login.index');
+//login Controller
+Route::get('/login', [loginController::class, 'login'])->name('login');
+Route::post('/login', [loginController::class, 'loginConfirm'])->name('login');
+//logout
+Route::get('/logout', [loginController::class, 'logout'])->name('logout');
+
+Route::get('/register', [registerController::class, 'register'])->name('register');
+Route::post('/register', [registerController::class, 'registration'])->name('register');
+
+
