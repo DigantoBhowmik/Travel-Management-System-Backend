@@ -61,3 +61,22 @@ nav a:hover{
     padding-top: 47px;
     border-radius: 10px;
 }
+.intro{
+    margin: 50px 0px 50px 0px;
+    background-image: url('./image/wallpaperflare.com_wallpaper.jpg');
+    
+    background-color: #000;
+    opacity: 1.6;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+}
+.intro_contain{
+    filter: brightness(100%);
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    
+}

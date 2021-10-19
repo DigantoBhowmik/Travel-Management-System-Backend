@@ -11,7 +11,7 @@
                 <label for="formGroupExampleInput2" class="form-label">Password:</label>
                 <input type="password" class="form-control" id="formGroupExampleInput2" >
               </div>
-              <button type="button" class="btn btn-primary login_button">Sign in</button>
+              <a href="" class="btn btn-primary login_button">Sign in</a>
               <div class="swap_between_login_register">
                 <p>Don't have any account?</p>
                 <u><a href="{{route('register')}}">Create an account</a></u>

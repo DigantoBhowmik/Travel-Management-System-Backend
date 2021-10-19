@@ -16,3 +16,4 @@ use App\Http\Controllers\pageController;
 Route::get('/', [pageController::class, 'home'])->name('home');
 Route::get('/login', [pageController::class, 'login'])->name('login');
 Route::get('/register', [pageController::class, 'register'])->name('register');
+Route::get('/project-login', 'LoginController@index')->name('login.index');
