@@ -16,12 +16,14 @@ class loginController extends Controller
                   ->where('password',$req->password)
                   ->first();
         if($check){
+            session()->put('userId',$check->id);
             session()->put('user',$check->name);
             return redirect()->route('home');
         }
         return redirect()->route('login')->with('err', 'These credentials do not match our records');
 
     }
+    
     public function logout(){
         session()->flush();
         return redirect()->route('home');

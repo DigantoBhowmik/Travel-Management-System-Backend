@@ -21,6 +21,7 @@ class registerController extends Controller
         $user->save();
 
         session()->put('user',$user->name);
+        session()->put('userId',$user->id);
         return redirect(route('home'));
     }
 }

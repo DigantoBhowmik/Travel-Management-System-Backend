@@ -16,7 +16,7 @@
                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{Session::get('user')}}
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><a href="#">HTML</a></li>
+                  <li><a href="{{route('editprofile')}}">My Profile</a></li>
                   <li><a href="#">CSS</a></li>
                   <li><a href="{{route('logout')}}">Log Out</a></li>
                 </ul>
