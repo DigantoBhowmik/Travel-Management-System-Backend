@@ -13,7 +13,7 @@
         <nav class=""  >
             <ul class="nav-bar">
                 <li><a href={{route('home')}}>Home</a></li>
-                <li><a href="">Package</a></li>
+                <li><a href="{{route('packages')}}">Package</a></li>
                 <li><a href="">Events</a></li>
                 <li><a href="">Resort</a></li>
                 <li><a href="">ShopHobe</a></li>
