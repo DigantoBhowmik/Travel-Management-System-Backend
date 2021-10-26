@@ -5,6 +5,7 @@ use App\Http\Controllers\pageController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\editController;
+use App\Http\Controllers\packageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,5 +30,8 @@ Route::post('/register', [registerController::class, 'registration'])->name('reg
 //editprofile
 Route::get('/profile', [editController::class, 'editProfile'])->name('editprofile');
 //Route::post('/register', [registerController::class, 'registration'])->name('register');
+
+//package
+Route::get('/packages', [packageController::class, 'packagelist'])->name('packages');
 
 
