@@ -28,6 +28,6 @@ Route::post('/register', [registerController::class, 'registration'])->name('reg
 
 //editprofile
 Route::get('/profile', [editController::class, 'editProfile'])->name('editprofile');
-//Route::post('/register', [registerController::class, 'registration'])->name('register');
+Route::post('/profile', [editController::class, 'updateData'])->name('editprofile');
 
 

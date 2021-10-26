@@ -1,6 +1,4 @@
-
-
-  <section>
+<section>
     <div class="Topbar">
       <div class="top">
         <p>We’re here to provide 24/7 at your service</p>
@@ -11,7 +9,7 @@
     </div>
   </section>
     <header>
-     <img  id="logo" alt=""> 
+     <img  id="logo" src="{{asset('asset\image\ghurifiri2.png')}}" alt=""> 
         <nav class=""  >
             <ul class="nav-bar">
                 <li><a href={{route('home')}}>Home</a></li>

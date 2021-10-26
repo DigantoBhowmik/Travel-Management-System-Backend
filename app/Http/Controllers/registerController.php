@@ -11,9 +11,20 @@ class registerController extends Controller
     {
         return view('pages.user.register');
     }
+    
     public function registration(Request $req)
     {
         $user = new user;
+        $this->validate(
+            $req,
+            [
+                'name'=>'required|min:4|max:50',
+                'email'=>'required|string|email|max:255|unique:users,email,'.$user->id,
+                'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/'
+            ],
+            
+            );
+        
         $user -> name = $req->name;
         $user -> email = $req->email;
         $user -> phone = $req->phone;
