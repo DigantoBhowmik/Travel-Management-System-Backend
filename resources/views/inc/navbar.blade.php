@@ -1,19 +1,32 @@
-<nav class="navbar navbar-light navbar-fixed-top" id="custom-nav">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-header">
-                <a class="navbar-brand" href={{route('home')}}>Ghurifhiri</a>
-            </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href={{route('home')}}>Home</a></li>
-            <li><a href="">Package</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
+
+
+  <section>
+    <div class="Topbar">
+      <div class="top">
+        <p>We’re here to provide 24/7 at your service</p>
+      </div>
+       <div class="top">
+        <p><i class="fas fa-phone-alt"></i>01767145146 <i class="far fa-envelope"></i> ghuraghuri@gmail.com</p>
+       </div>
+    </div>
+  </section>
+    <header>
+     <img  id="logo" alt=""> 
+        <nav class=""  >
+            <ul class="nav-bar">
+                <li><a href={{route('home')}}>Home</a></li>
+                <li><a href="">Package</a></li>
+                <li><a href="">Events</a></li>
+                <li><a href="">Resort</a></li>
+                <li><a href="">ShopHobe</a></li>
+                <li><a href="">RentHobe</a></li>
+                <li><a href="">Contact Us</a></li>
+              </ul>
+        </nav>
         @if (Session::has('user'))
-        <ul class="nav navbar-nav navbar-right ">
-            <div class="dropdown" style="margin: 7px 5px 0px 0px">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{Session::get('user')}}
+        <ul class="nav navbar-nav  ">
+            <div class="dropdown" >
+                <button class="btn" type="button" data-toggle="dropdown">{{Session::get('user')}}
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li><a href="{{route('editprofile')}}">My Profile</a></li>
@@ -23,13 +36,7 @@
               </div>
         </ul>
         @else
-        <ul class="nav navbar-nav navbar-right ">
-            <li><a href="{{route('register')}}" ><span class="glyphicon glyphicon-user "></span> Sign Up</a></li>
-            <li><a href={{route('login')}} ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
+            <li><a class="btn" href={{route('login')}} ><span ></span>Sign in</a></li>
+        
         @endif
-        
-        
-        </div>
-    </div>
-  </nav>
+    </header>
