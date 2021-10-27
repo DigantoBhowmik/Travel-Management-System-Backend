@@ -20,6 +20,7 @@ class editController extends Controller
             [
                 'name'=>'required|min:4|max:50',
                 'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/'
+                
             ],
             
             );
