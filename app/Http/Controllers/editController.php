@@ -19,7 +19,9 @@ class editController extends Controller
             $req,
             [
                 'name'=>'required|min:4|max:50',
-                'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/'
+                'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+                'password'=>'required|between:6,12',
+                'cpassword'=>'required|same:password'
             ],
             
             );

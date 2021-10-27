@@ -31,6 +31,9 @@
                     <div class="form-group">
                         <label for="fullName">Full Name</label>
                         <input type="text" class="form-control" name="name" value="{{$user->name}}">
+                        @error('name')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                     </div>
                 </div>
                 
@@ -38,17 +41,23 @@
                     <div class="form-group">
                         <label for="eMail">Email</label>
                         <input type="email" class="form-control" name="email" value="{{$user->email}}">
+                        @error('email')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="phone">Phone</label>
                         <input type="text" class="form-control" name="phone" value="{{$user->phone}}">
+                        @error('phone')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                        <label for="website">Role</label>
+                        <label for="role">Role</label>
                         <input type="text" class="form-control" name="role" value="{{$user->role}}">
                     </div>
                 </div>
@@ -62,12 +71,18 @@
                     <div class="form-group">
                         <label for="Password">Password</label>
                         <input type="password" class="form-control" name="password" value="{{$user->password}}">
+                        @error('password')
+                        <span class="text-danger">{{$message}}</span>
+                         @enderror
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="cpassword">Confirm Password</label>
                         <input type="password" class="form-control" name="cpassword" value="{{$user->password}}">
+                        @error('cpassword')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                     </div>
                 </div>
                
