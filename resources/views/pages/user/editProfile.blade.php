@@ -57,7 +57,6 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-<<<<<<< HEAD
                         <label for="website">Role</label>
                         <select  name="role" class="form-control">
                             @if ($user->role=='user')
@@ -67,10 +66,6 @@
                                 <option value="agent">agent</option>  
                             @endif
                         </select>
-=======
-                        <label for="role">Role</label>
-                        <input type="text" class="form-control" name="role" value="{{$user->role}}">
->>>>>>> c771beb2ce8cf6aa8dc6ecb7bc0c83d7d1bac8a8
                     </div>
                 </div>
             </div>
@@ -91,8 +86,8 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="cpassword">Confirm Password</label>
-                        <input type="password" class="form-control" name="cpassword" value="{{$user->password}}">
-                        @error('cpassword')
+                        <input type="password" class="form-control" name="Confirm_Password" value="{{$user->password}}">
+                        @error('Confirm_Password')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
@@ -116,5 +111,6 @@
     </div>
     
     </div>
+    
     
 @endsection

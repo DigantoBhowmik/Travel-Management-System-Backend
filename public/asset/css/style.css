@@ -148,9 +148,10 @@ height: 500px;
         grid-template-columns: repeat(4, 1fr);
         grid-column-gap: 20px;
         grid-row-gap: 45px;
-       margin-right: 60px;
-       margin-left: 110px;
-       padding: 10px;
+        margin-right: 42px;
+        margin-left: 42px;
+        margin-bottom: 20px;
+        padding: 10px;
     }
     
     .image-card .image-card-banner img {

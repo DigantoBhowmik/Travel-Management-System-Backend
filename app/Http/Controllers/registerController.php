@@ -22,8 +22,8 @@ class registerController extends Controller
                 'email'=>'required|string|email|max:255|unique:users,email,'.$user->id,
                 'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/',
                 'password'=>'required|between:6,12',
-                'cpassword'=>'required|same:password'
-
+                'Confirm_Password'=>'required|same:password'
+            
             ],
             
             );

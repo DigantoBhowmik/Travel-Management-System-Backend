@@ -35,8 +35,8 @@
               </div>
               <div class="mb-3" style="margin-top: 20px">
                 <label for="formGroupExampleInput2" class="form-label">Confirm Password :</label>
-                <input type="password" name="cpassword" class="form-control" id="formGroupExampleInput2" >
-                @error('cpassword')
+                <input type="password" name="Confirm_Password" class="form-control" id="formGroupExampleInput2" >
+                @error('Confirm_Password')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>
