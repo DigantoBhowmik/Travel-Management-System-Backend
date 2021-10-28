@@ -6,6 +6,7 @@ use App\Http\Controllers\registerController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\editController;
 use App\Http\Controllers\packageController;
+use App\Http\Controllers\eventController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,10 @@ Route::get('/profile', [editController::class, 'editProfile'])->name('editprofil
 Route::post('/profile', [editController::class, 'updateData'])->name('editprofile');
 
 //package
-Route::get('/packages', [packageController::class, 'packagelist'])->name('packages');
+Route::post('/packages', [packageController::class, 'packagelist'])->name('packages');
+Route::get('/createpackages', [packageController::class, 'createpackage'])->name('createpackage');
+
+//event
+Route::get('/events', [eventController::class, 'eventlist'])->name('events');
 
 
