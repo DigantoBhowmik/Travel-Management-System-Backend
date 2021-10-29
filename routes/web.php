@@ -33,8 +33,10 @@ Route::get('/profile', [editController::class, 'editProfile'])->name('editprofil
 Route::post('/profile', [editController::class, 'updateData'])->name('editprofile');
 
 //package
-Route::post('/packages', [packageController::class, 'packagelist'])->name('packages');
-Route::get('/createpackages', [packageController::class, 'createpackage'])->name('createpackage');
+Route::get('/packages', [packageController::class, 'packagelist'])->name('packages');
+Route::post('/createpackages', [packageController::class, 'createpackages'])->name('createpackages');
+Route::get('/createpackages', [packageController::class, 'package'])->name('createpackages');
+
 
 //event
 Route::get('/events', [eventController::class, 'eventlist'])->name('events');

@@ -3,30 +3,33 @@
 
     <legend> Packages </legend>
 <br>
-<table class="table">
-    <thead>
-      <tr>
-        
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Short Description</th>
-        <th scope="col">Agent Name</th>
-      </tr>
-    </thead>
-    <tbody>
 
-        @foreach ($packages as $package)
-            <tr>
-                
-                <td>{{$package->name}}</td>
-                <td>{{$package->price}}</td>
-                <td>{{$package->shortdesc}}</td>
-                <td>{{$package->agentname}}</td>
-            </tr>
-            
-       @endforeach
-    </tbody>
-  </table>
+  <div class="row">
+    @foreach ($packages as $package)
+      <a href="{{route('home')}}">
+        <div class="image-cards col-md-3">
+            <div class="image-card">
+                <div class="image-card-banner">
+                    <img src="{{asset($package->image)}}">
+                </div>
+                <div class="card-details">
+                    <h1><b>{{$package->name}}</b></h1>
+                    <p class="cards-p"><i class="fas fa-bolt"></i>
+                      From <span id="price"> {{$package->price}}</span> taka
+                  </p>
+                  <p><i class="fas fa-clock"></i> 1day & 2 night</p>
+                </div>
+              
+            </div>
+        </div>
+    </a>
+  @endforeach
+  
+  </div>
+  
+    
+    
+    
         
     
 @endsection

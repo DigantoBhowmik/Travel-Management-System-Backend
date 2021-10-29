@@ -14,28 +14,35 @@ class packageController extends Controller
         $packages = package::all();
         return view('pages.package.packages')->with('packages',$packages);
     }
-
-    public function createpackage(Request $req)
+    public function package()
+    {
+        return view('pages.agent.createpackages');
+    }
+    public function createpackages(Request $req)
     {
         $packages = new package;
         $this->validate(
             $req,
             [
-                'name'=>'required|min:4|max:50',
-                'email'=>'required|string|email|max:255|unique:users,email,'.$packages->id,
-                'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/',
-                'password'=>'required|between:6,12',
-                'cpassword'=>'required|same:password'
+                'name'=>'required|min:4|max:50'.$packages->id,
+                'price'=>'required',
+                'shortdesc'=>'required',
+                'desc'=>'required',
+                'agentname'=>'required',
+                'image'=>'required'
 
             ],
             
             );
         
         $packages -> name = $req->name;
-        $packages -> email = $req->email;
-        $packages -> phone = $req->phone;
-        $packages -> password = $req->password;
-        return redirect(route('pages.package.packges'));
+        $packages -> price = $req->price;
+        $packages -> shortdesc = $req->shortdesc;
+        $packages -> desc = $req->desc;
+        $packages -> agentname = $req->agentname;
+        $packages -> image = $req->image;
+        $packages->save();
+        return redirect(route('packages'));
     }
 
 }
