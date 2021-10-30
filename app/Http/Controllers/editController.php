@@ -19,14 +19,9 @@ class editController extends Controller
             $req,
             [
                 'name'=>'required|min:4|max:50',
-<<<<<<< HEAD
-                'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/'
-                
-=======
                 'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/',
                 'password'=>'required|between:6,12',
-                'cpassword'=>'required|same:password'
->>>>>>> c771beb2ce8cf6aa8dc6ecb7bc0c83d7d1bac8a8
+                'Confirm_Password'=>'required|same:password'
             ],
             
             );
@@ -39,6 +34,8 @@ class editController extends Controller
         $user->save();
 
         session()->put('user',$user->name);
+        session()->put('role',$user->role);
+        session()->put('userId',$user->id);
         return redirect(route('editprofile'));
     }
 }

@@ -6,8 +6,12 @@ use App\Http\Controllers\registerController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\editController;
 use App\Http\Controllers\packageController;
+<<<<<<< HEAD
 use App\Http\Controllers\adminsController;
 use Illuminate\Http\Request;
+=======
+use App\Http\Controllers\eventController;
+>>>>>>> 4e59b17a39b3a2d795068d1d5789f80585c8ec1d
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +39,12 @@ Route::post('/profile', [editController::class, 'updateData'])->name('editprofil
 
 //package
 Route::get('/packages', [packageController::class, 'packagelist'])->name('packages');
+Route::post('/createpackages', [packageController::class, 'createpackages'])->name('createpackages');
+Route::get('/createpackages', [packageController::class, 'package'])->name('createpackages');
+Route::get('/packagedetails/{id}', [packageController::class, 'packdetails'])->name('packdetails');
+
+//event
+Route::get('/events', [eventController::class, 'eventlist'])->name('events');
 
 
 

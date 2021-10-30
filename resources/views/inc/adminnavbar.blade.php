@@ -14,7 +14,7 @@
             <ul class="nav-bar">
                 <li><a href={{route('adminDash')}}>Home</a></li>
                 <li><a href={{route('admins.list')}}> Admins </a></li>
-                <li><a href="{{route('packages')}}">Packages</a></li>
+                <li><a href="">Packages</a></li>
                 <li><a href="">Agents</a></li>
                 <li><a href="">Users</a></li>
               </ul>

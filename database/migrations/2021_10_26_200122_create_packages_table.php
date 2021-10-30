@@ -20,9 +20,7 @@ class CreatePackagesTable extends Migration
             $table->string('shortdesc');
             $table->string('desc');
             $table->string('agentname');
-            $table->date('startingdate');
-            $table->date('enddate');
-            $table->date('bookingdeadline');
+            $table->longblob('image');
             $table->timestamps();
         });
     }

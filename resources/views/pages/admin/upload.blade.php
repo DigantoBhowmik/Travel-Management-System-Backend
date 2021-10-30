@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.adminapp')
 @section('contain')
 <div class="row gutters" style="margin-top: 50px">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -7,9 +7,9 @@
             <div class="account-settings">
                 <div class="user-profile">
                    
-                    <h5 class="user-name"><i class="fas fa-user"></i><b> {{$user->name}}</b></h5>
-                    <h6 class="user-email"><i class="fas fa-envelope"></i><b> {{$user->email}}</b></h6>
-                    <h5 class="user-name"><i class="fas fa-phone-alt"></i><b> {{$user->phone}}</b></h5>
+                    <h5 class="user-name"><i class="fas fa-user"></i><b> {{$admin->name}}</b></h5>
+                    <h6 class="user-email"><i class="fas fa-envelope"></i><b> {{$admin->email}}</b></h6>
+                    <h5 class="user-name"><i class="fas fa-phone-alt"></i><b> {{$admin->phone}}</b></h5>
                 </div>
                 
             </div>
@@ -30,7 +30,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="fullName">Full Name</label>
-                        <input type="text" class="form-control" name="name" value="{{$user->name}}">
+                        <input type="text" class="form-control" name="name" value="{{$admin->name}}">
                         @error('name')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
@@ -40,7 +40,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="eMail">Email</label>
-                        <input type="email" class="form-control" name="email" value="{{$user->email}}">
+                        <input type="email" class="form-control" name="email" value="{{$admin->email}}">
                         @error('email')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
@@ -49,25 +49,13 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="text" class="form-control" name="phone" value="{{$user->phone}}">
+                        <input type="text" class="form-control" name="phone" value="{{$admin->phone}}">
                         @error('phone')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div class="form-group">
-                        <label for="website">Role</label>
-                        <select  name="role" class="form-control">
-                            @if ($user->role=='user')
-                                <option value="user">{{$user->role}}</option>
-                                <option value="agent">agent</option>
-                            @else
-                                <option value="agent">agent</option>  
-                            @endif
-                        </select>
-                    </div>
-                </div>
+                
             </div>
             
             <div class="row gutters">
@@ -86,8 +74,8 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="cpassword">Confirm Password</label>
-                        <input type="password" class="form-control" name="Confirm_Password" value="{{$user->password}}">
-                        @error('Confirm_Password')
+                        <input type="password" class="form-control" name="cpassword" value="{{$user->password}}">
+                        @error('cpassword')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
@@ -111,6 +99,5 @@
     </div>
     
     </div>
-    
     
 @endsection

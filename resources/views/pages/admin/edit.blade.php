@@ -1,34 +1,50 @@
 @extends('layouts.adminapp')
 @section('contain')
-<form action="{{route('admin.edit')}}" class="col-md-6" method="post">
-       
-        {{csrf_field()}}
-        <input type="hidden" name="id" value="{{$admin->id}}">
-        <div class="col-md-4 form-group">
-            <span>Name</span>
-            <input type="text" name="name" value="{{$admin->name}}" class="form-control">
-            @error('name')
-                <span class="text-danger">{{$message}}</span>
-            @enderror
+<div class="register_page">
+        <div class="register_body">
+          <form action="{{route('admin.edit')}}"  method="post">
+            {{csrf_field()}}
+            <input type="hidden" name="id" value="{{$admin->id}}">
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Full Name :</label>
+                <input type="text" name="name" value="{{$admin->name}}"  class="form-control" id="formGroupExampleInput" >
+                @error('name')
+                  <span class="text-danger">{{$message}}</span>
+                 @enderror
+              </div>
+              
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Email :</label>
+                <input type="text" name="email" value="{{$admin->email}}" class="form-control" id="formGroupExampleInput" >
+                @error('email')
+                  <span class="text-danger">{{$message}}</span>
+                 @enderror
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Phone :</label>
+                <input type="text" name="phone" value="{{$admin->phone}}" class="form-control" id="formGroupExampleInput" >
+                @error('phone')
+                  <span class="text-danger">{{$message}}</span>
+                 @enderror
+              </div>
+
+              <div class="mb-3" style="margin-top: 20px">
+                <label for="formGroupExampleInput2" class="form-label">Password :</label>
+                <input type="password" name="password" value="{{$admin->password}}" class="form-control" id="formGroupExampleInput2" >
+                @error('password')
+                  <span class="text-danger">{{$message}}</span>
+                 @enderror
+              </div>
+              <div class="mb-3" style="margin-top: 20px">
+                <label for="formGroupExampleInput2" class="form-label">Confirm Password :</label>
+                <input type="password" name="cpassword" value="{{$admin->password}}" class="form-control" id="formGroupExampleInput2" >
+                @error('cpassword')
+                  <span class="text-danger">{{$message}}</span>
+                 @enderror
+              </div>
+              <input type="submit" name="submit" value="Edit Admin" class="btn btn-primary login_button">
+          </form>  
         </div>
-        <div class="col-md-4 form-group">
-            <span>Email</span>
-            <input type="text" name="email" value="{{$admin->email}}" class="form-control">
-        </div>
-        <div class="col-md-4 form-group">
-            <span>Phone</span>
-            <input type="text" name="phone" value="{{$admin->phone}}" class="form-control">
-            @error('phone')
-                <span class="text-danger">{{$message}}</span>
-            @enderror
-        </div>
-        <div class="col-md-4 form-group">
-            <span>password</span>
-            <input type="text" name="password" value="{{$admin->password}}" class="form-control">
-            @error('password')
-                <span class="text-danger">{{$message}}</span>
-            @enderror
-        </div>
-        <input type="submit" class="btn btn-success" value="Edit" >
-    </form>
-@endsection
+        
+    </div>
+    @endsection
