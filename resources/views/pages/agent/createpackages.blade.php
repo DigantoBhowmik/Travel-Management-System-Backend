@@ -1,10 +1,13 @@
 @extends('layouts.app')
 @section('contain')
-    <div class="register_page">
-        <div class="register_body">
+<legend> Add Package </legend>
+<br>
+    <div >
+      {{$package}}
+        <div >
           <form method="POST" action="{{route('createpackages')}}">
             {{csrf_field()}}
-            <div class="mb-3">
+            <div class="mb-6">
                 <label for="formGroupExampleInput" class="form-label">Package Name :</label>
                 <input type="text" name="name" class="form-control" id="formGroupExampleInput" >
                 @error('name')
@@ -27,25 +30,19 @@
               </div>
               <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Description</label>
-                <input type="text" name="desc" class="form-control" id="formGroupExampleInput" >
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc"></textarea>
                 @error('desc')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>
-              <div class="mb-3">
+              <div class="mb-3" hidden>
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Agent Name</label>
-                <input type="text" name="agentname" class="form-control" id="formGroupExampleInput" >
+                <input type="text" name="agentname" class="form-control" id="formGroupExampleInput" value="{{Session()->get('userId')}}">
                 @error('agentname')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Image</label>
-                <input type="file" name="image" class="form-control" id="formGroupExampleInput" >
-                @error('image')
-                  <span class="text-danger">{{$message}}</span>
-                 @enderror
-              </div>
+              
               <input type="submit" name="submit" value="REGISTER" class="btn btn-primary login_button">
           </form>  
         </div>

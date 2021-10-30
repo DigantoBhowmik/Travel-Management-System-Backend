@@ -34,6 +34,8 @@ class editController extends Controller
         $user->save();
 
         session()->put('user',$user->name);
+        session()->put('role',$user->role);
+        session()->put('userId',$user->id);
         return redirect(route('editprofile'));
     }
 }

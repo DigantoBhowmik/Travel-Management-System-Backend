@@ -36,6 +36,7 @@ class registerController extends Controller
 
         session()->put('user',$user->name);
         session()->put('userId',$user->id);
+        session()->put('role',$user->role);
         return redirect(route('home'));
     }
 }

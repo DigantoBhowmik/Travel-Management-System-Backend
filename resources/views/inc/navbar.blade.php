@@ -29,10 +29,10 @@
                 <ul class="dropdown-menu">
                   <li><a href="{{route('editprofile')}}">My Profile</a></li>
                   
-                  @if (Session::get('role')=='user')
+                  @if (Session()->get('role')=='user')
                     <li><a href="#">My Booking</a></li>
                   @else
-                    <li><a href="#">My Packages</a></li>
+                    <li><a href="{{route('createpackages')}}">My Packages</a></li>
                     <li><a href="#">My Events</a></li>
                   @endif
                   

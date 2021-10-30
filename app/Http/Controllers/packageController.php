@@ -11,7 +11,8 @@ class packageController extends Controller
     //
     public function package()
     {
-        return view('pages.agent.createpackages');
+        $package=Package::where('id',Session()->get('userId'))->first();
+        return view('pages.agent.createpackages')->with('package',$package);
     }
 
     function packagelist()
@@ -30,8 +31,7 @@ class packageController extends Controller
                 'price'=>'required',
                 'shortdesc'=>'required',
                 'desc'=>'required',
-                'agentname'=>'required',
-                'image'=>'required'
+                'agentname'=>'required'
 
             ],
             
@@ -41,8 +41,7 @@ class packageController extends Controller
         $packages -> price = $req->price;
         $packages -> shortdesc = $req->shortdesc;
         $packages -> desc = $req->desc;
-        $packages -> agentname = $req->agentname;
-        $packages -> image = $req->image;
+        $packages -> agentId = $req->agentname;
         $packages->save();
         return redirect(route('packages'));
     }
