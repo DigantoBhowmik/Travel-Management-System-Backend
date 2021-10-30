@@ -9,15 +9,17 @@ use App\Models\Package;
 class packageController extends Controller
 {
     //
+    public function package()
+    {
+        return view('pages.agent.createpackages');
+    }
+
     function packagelist()
     {
         $packages = package::all();
         return view('pages.package.packages')->with('packages',$packages);
     }
-    public function package()
-    {
-        return view('pages.agent.createpackages');
-    }
+
     public function createpackages(Request $req)
     {
         $packages = new package;
@@ -43,6 +45,13 @@ class packageController extends Controller
         $packages -> image = $req->image;
         $packages->save();
         return redirect(route('packages'));
+    }
+
+    public function packdetails(Request $req)
+    {
+        $id= $req->id;
+        $packages= package::where('id',$id)->first();
+        return view('pages.package.packdetails')->with('packages',$packages);
     }
 
 }

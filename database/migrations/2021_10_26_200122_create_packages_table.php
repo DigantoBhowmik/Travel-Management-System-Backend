@@ -20,6 +20,7 @@ class CreatePackagesTable extends Migration
             $table->string('shortdesc');
             $table->string('desc');
             $table->string('agentname');
+            $table->longblob('image');
             $table->timestamps();
         });
     }

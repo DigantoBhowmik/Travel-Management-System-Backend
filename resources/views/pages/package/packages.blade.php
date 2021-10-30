@@ -6,7 +6,7 @@
 
   <div class="row">
     @foreach ($packages as $package)
-      <a href="{{route('home')}}">
+        <a href="/packagedetails/{{$package->id}}">
         <div class="image-cards col-md-3">
             <div class="image-card">
                 <div class="image-card-banner">
