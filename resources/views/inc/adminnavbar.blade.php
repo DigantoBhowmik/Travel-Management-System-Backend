@@ -33,7 +33,7 @@
               </div>
         </ul>
         @else
-            <li><a class="btn" href={{route('login')}} ><span ></span>Sign in</a></li>
+            <li><a class="btn" href={{route('admin')}} ><span ></span>Sign in</a></li>
         
         @endif
     </header>
