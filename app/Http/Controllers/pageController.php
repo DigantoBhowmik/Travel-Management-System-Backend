@@ -10,6 +10,11 @@ class pageController extends Controller
     {
         return view('pages.home');
     }
+    public function adminDash(){
+        return view('pages.admin.adminDash');
+
+    }
+
     
     
 }
