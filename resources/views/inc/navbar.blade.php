@@ -31,7 +31,7 @@
                   
                   @if (Session()->get('role')=='agent')
                     <li><a href="{{route('createpackages')}}">My Packages</a></li>
-                    <li><a href="#">My Events</a></li>
+                    <li><a href="{{route('createevents')}}">My Events</a></li>
                   @else
                     <li><a href="#">My Booking</a></li>
                   @endif
