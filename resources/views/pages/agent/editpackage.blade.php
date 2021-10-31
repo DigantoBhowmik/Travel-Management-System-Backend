@@ -2,7 +2,7 @@
 @section('contain')
 
     <div class="createPart">
-      <legend > Add Package </legend>  
+      <legend > <i class="fas fa-edit"> Edit Package</i>  </legend>  
         <div >
           <form method="POST" action="{{route('editpackage')}}">
             {{csrf_field()}}

@@ -41,6 +41,7 @@ Route::get('/packagedetails/{id}', [packageController::class, 'packdetails'])->n
 Route::post('/createpackages', [packageController::class, 'createpackages'])->name('createpackages');
 Route::get('/createpackages', [packageController::class, 'package'])->name('createpackages');
 Route::get('/delete/{id}', [packageController::class, 'delete']);
+Route::get('/book/{id}', [packageController::class, 'whoBooked']);
 Route::get('/editpackage/{id}', [packageController::class, 'editpackage'])->name('editpackage');
 Route::post('/editpackage', [packageController::class, 'updatePackage'])->name('editpackage');
 

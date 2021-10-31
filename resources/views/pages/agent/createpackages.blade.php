@@ -1,39 +1,6 @@
 @extends('layouts.app')
 @section('contain')
-<br>
-<legend> My Package </legend>
-<div>
-  <table class="table">
-    <thead>
-      <tr>
-        
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Short Description</th>
-        <th scope="col">Description</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      
-        @foreach ($packages as $package)
-        
-            <tr>
-              
-                <td>{{$package->name}}</td>
-                <td>{{$package->price}}</td>
-                <td>{{$package->shortdesc}}</td>
-                <td>{{$package->desc}}</td>
-                <td><a href="/editpackage/{{$package->id}}">Edit</a></td>
-                <td><a href="/delete/{{$package->id}}">Delete</a></td> 
-            </tr>
-          
-       @endforeach
-    </tbody>
-  </table>
-</div>
+
     <div class="createPart">
       <legend > Add Package </legend>  
         <div >
@@ -80,4 +47,41 @@
         </div>
         
     </div>
+    <fieldset>
+      <br>
+      <legend> My Package </legend>
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Short Description</th>
+              <th scope="col">Description</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              @foreach ($packages as $package)
+              
+                  <tr>
+                    
+                      <td>{{$package->name}}</td>
+                      <td>{{$package->price}}</td>
+                      <td>{{$package->shortdesc}}</td>
+                      <td>{{$package->desc}}</td>
+                      <td><a href="/book/{{$package->id}}">Booking Details</a></td>
+                      <td><a href="/editpackage/{{$package->id}}">Edit</a></td>
+                      <td><a href="/delete/{{$package->id}}">Delete</a></td> 
+                  </tr>
+                
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    </fieldset>
 @endsection
