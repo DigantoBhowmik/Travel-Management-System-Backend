@@ -31,7 +31,7 @@ class packageController extends Controller
                 'price'=>'required',
                 'shortdesc'=>'required',
                 'desc'=>'required',
-                'agentname'=>'required'
+                'agentname'=>'required',
 
             ],
             
@@ -41,6 +41,7 @@ class packageController extends Controller
         $packages -> price = $req->price;
         $packages -> shortdesc = $req->shortdesc;
         $packages -> desc = $req->desc;
+        $packages -> image = $req->image;
         $packages -> agentId = $req->agentname;
         $packages->save();
         return redirect(route('createpackages'));
@@ -85,6 +86,7 @@ class packageController extends Controller
         $packages -> price = $req->price;
         $packages -> shortdesc = $req->shortdesc;
         $packages -> desc = $req->desc;
+        $packages -> image = $req->image;
         $packages -> agentId = $req->agentname;
         $packages->save();
         return redirect(route('createpackages'));

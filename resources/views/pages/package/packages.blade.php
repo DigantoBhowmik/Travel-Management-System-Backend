@@ -10,7 +10,7 @@
         <div class="image-cards col-md-3">
             <div class="image-card">
                 <div class="image-card-banner">
-                    <img src="{{asset($package->image)}}">
+                    <img src="{{$package->image}}">
                 </div>
                 <div class="card-details">
                     <h1><b>{{$package->name}}</b></h1>
