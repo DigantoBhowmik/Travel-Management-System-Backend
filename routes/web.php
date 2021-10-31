@@ -9,6 +9,7 @@ use App\Http\Controllers\packageController;
 use App\Http\Controllers\adminsController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\eventController;
+use App\Http\Controllers\orderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,15 +38,34 @@ Route::post('/profile', [editController::class, 'updateData'])->name('editprofil
 
 //package
 Route::get('/packages', [packageController::class, 'packagelist'])->name('packages');
+Route::get('/packagedetails/{id}', [packageController::class, 'packdetails'])->name('packdetails');
 Route::post('/createpackages', [packageController::class, 'createpackages'])->name('createpackages');
 Route::get('/createpackages', [packageController::class, 'package'])->name('createpackages');
-Route::get('/packagedetails/{id}', [packageController::class, 'packdetails'])->name('packdetails');
+Route::get('/delete/{id}', [packageController::class, 'delete']);
+Route::get('/book/{id}', [packageController::class, 'whoBooked']);
+Route::get('/editpackage/{id}', [packageController::class, 'editpackage'])->name('editpackage');
+Route::post('/editpackage', [packageController::class, 'updatePackage'])->name('editpackage');
+
+Route::post('/packagedetails', [orderController::class, 'confirmPackage'])->name('confirmpackage');
+
+
 
 //event
 Route::get('/events', [eventController::class, 'eventlist'])->name('events');
+Route::get('/eventdetails/{id}', [eventController::class, 'eventdetails'])->name('eventdetails');
+Route::post('/createevents', [eventController::class, 'createevents'])->name('createevents');
+Route::get('/createevents', [eventController::class, 'event'])->name('createevents');
+Route::get('/delete/{id}', [eventController::class, 'delete']);
+Route::get('/editevent/{id}', [eventController::class, 'editevent'])->name('editevent');
+Route::post('/editevent', [eventController::class, 'updateEvent'])->name('editevent');
 
 
 
+//AGENT
+Route::post('/createpackages', [packageController::class, 'createpackages'])->name('createpackages')->middleware('ValidUser')->middleware('CheckRole');
+Route::get('/createpackages', [packageController::class, 'package'])->name('createpackages')->middleware('ValidUser')->middleware('CheckRole');
+Route::post('/createevents', [eventController::class, 'createevents'])->name('createevents')->middleware('ValidUser')->middleware('CheckRole');
+Route::get('/createevents', [eventController::class, 'event'])->name('event')->middleware('ValidUser')->middleware('CheckRole');
 
 
 //Admin Part

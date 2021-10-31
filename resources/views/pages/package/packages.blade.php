@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('contain')
-
+<br>
     <legend> Packages </legend>
 <br>
 
@@ -17,7 +17,7 @@
                     <p class="cards-p"><i class="fas fa-bolt"></i>
                       From <span id="price"> {{$package->price}}</span> taka
                   </p>
-                  <p><i class="fas fa-clock"></i> 1day & 2 night</p>
+                  <p><i class="fas fa-clock"></i>Posted :{{$package->created_at}}</p>
                 </div>
               
             </div>

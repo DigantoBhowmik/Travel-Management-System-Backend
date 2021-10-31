@@ -8,45 +8,92 @@ use App\Models\Event;
 class eventController extends Controller
 {
     //
+    public function event()
+    {
+        $events=event::where('agentId',Session()->get('userId'))->get();
+        return view('pages.agent.createevents')->with('events',$events);
+    }
+
     function eventlist()
     {
         $events = event::all();
         return view('pages.event.events')->with('events',$events);
     }
-    public function event()
-    {
-        return view('pages.agent.createevents');
-    }
+
     public function createevents(Request $req)
     {
         $events = new event;
         $this->validate(
             $req,
             [
-                'eventname' => 'required|min:4|max40'.$events->id,
-                'shortdiscreption'=>'required',
-                'discrepetion'=> 'required',
+                'name'=>'required|min:4|max:50'.$events->id,
                 'price'=>'required',
-                'startingdate'=>'required',
-                'endingdate'=>'required',
-                'image'	=>'required',
-                'deadline'	=>'required',
-                'agentid'=>'required',
+                'startdate'=>'required',
+                'enddate'=>'required',
+                'deadline'=>'required',
+                'shortdesc'=>'required',
+                'desc'=>'required',
+                'agentname'=>'required',
+                
+
             ],
-        );
-
-        $events -> eventname = $req->eventname;
-        $events -> shortdiscreption = $req -> shortdiscreption;
-        $events -> discrepetion = $req -> discrepetion;
-        $events -> price = $req-> price;
-        $events -> startingdate = $req-> startingdate;
-        $events -> endingdate = $req-> endingdate;
-        $events -> image = $req-> image;
-        $events -> deadline = $req-> deadline;
-        $events -> agentid = $req-> agentid;
+            
+            );
+        
+        $events -> name = $req->name;
+        $events -> price = $req->price;
+        $events -> startdate = $req->startdate;
+        $events -> enddate = $req->enddate;
+        $events -> deadline = $req->deadline;
+        $events -> shortdesc = $req->shortdesc;
+        $events -> desc = $req->desc;
+        $events -> agentId = $req->agentname;
         $events->save();
-        return redirect(route('events'));
+        return redirect(route('createevents'));
+    }
 
+    public function eventdetails(Request $req)
+    {
+        $id= $req->id;
+        $events= event::where('id',$id)->first();
+        return view('pages.event.eventdetails')->with('events',$events);
+    }
+    public function delete(Request $request)
+    {
+        $events = event::where('id',$request->id)->first();
+        $events->delete();
+        return redirect(route('createevents'));
+    }
+    public function editEvent(Request $request)
+    {
+        $id= $request->id;
+        $events= event::where('id',$id)->first();
+        return view('pages.agent.editevent')->with('events',$events);
+    }
+    public function updateEvent(Request $req)
+    {
+        $id= $req->id;
+        $events = event::where('id',$id)->first();
+        // $this->validate(
+        //     $req,
+        //     [
+        //         'name'=>'required|min:4|max:50'.$packages->id,
+        //         'price'=>'required',
+        //         'shortdesc'=>'required',
+        //         'desc'=>'required',
+        //         'agentname'=>'required'
+
+        //     ],
+            
+        //     );
+        
+        $events -> name = $req->name;
+        $events -> price = $req->price;
+        $events -> shortdesc = $req->shortdesc;
+        $events -> desc = $req->desc;
+        $events -> agentId = $req->agentname;
+        $events->save();
+        return redirect(route('createevents'));
     }
 
 }
