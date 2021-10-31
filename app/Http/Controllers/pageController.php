@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\admin;
+use App\Models\User;
+use App\Models\Package;
 
 class pageController extends Controller
 {
@@ -14,7 +17,7 @@ class pageController extends Controller
         return view('pages.admin.adminDash');
 
     }
-
+   
     
     
 }

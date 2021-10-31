@@ -14,7 +14,7 @@
             <ul class="nav-bar">
                 <li><a href="{{route('adminDash')}}">Home</a></li>
                 <li><a href="{{route('admins.list')}}"> Admins </a></li>
-                <li><a href="{{route('admins.Packagelist')}}">Packages</a></li>
+                <li><a href="{{route('admins.packagelist')}}">Packages</a></li>
                 <li><a href="{{route('admins.Agentlist')}}">Agents</a></li>
                 <li><a href="{{route('admins.Userlist')}}">Users</a></li> 
               </ul>
@@ -26,14 +26,14 @@
                 <button class="btn" type="button" data-toggle="dropdown">{{Session::get('admin')}}
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><a href="{{route('editprofile')}}">My Profile</a></li>
+                  <li><a href="{{route('admineditprofile')}}">My Profile</a></li>
                   
-                  <li><a href="{{route('logout')}}">Log Out</a></li>
+                  <li><a href="{{route('Alogout')}}">Log Out</a></li>
                 </ul>
               </div>
         </ul>
         @else
-            <li><a class="btn" href={{route('admin')}} ><span ></span>Sign in</a></li>
+            <li><a class="btn" href="{{route('admin')}}" ><span ></span>Sign in</a></li>
         
         @endif
     </header>

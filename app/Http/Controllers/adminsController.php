@@ -12,6 +12,9 @@ class adminsController extends Controller
     public function __construct(){
             $this->middleware('ValidAdmin');
          }
+
+
+///////////////////////-----------------------Admin Crud-------------------------/////////////////////////
     public function Create(){
         return view('pages.admin.create');
     }
@@ -272,9 +275,67 @@ class adminsController extends Controller
        // $admins = admin::all();
         // return view('pages.admin.list')->with('admins',$admins);
         $Packages = Package::all();
-        return view('pages.admin.Packages')
+        return view('pages.admin.package.packagelist')
         ->with('Packages', $Packages);
     }
+    public function Packageedit(Request $request){
+        $id = $request->id;
+        $package = Package::where('id',$id)->first();
+        
+        return view('pages.admin.package.packageedit')->with('package',$package);
+    }
+    
+          public function PackageeditSubmit(Request $request){
+
+       
+            $this->validate(
+                $request,
+                [
+                    'name'=>'required|min:3|max:20',
+                    'agentname'=>'required|min:3|max:20',
+                    'id'=>'required',
+                    'price'=>'required',
+                    'shortdesc'=>'required',
+                    'desc'=>'required'
+                    
+                ],
+                [
+                    'name.required'=>'Please put your name',
+                    'agentname.required'=>'Please put your Agent name',
+                    'id.required'=>'Your id should be a number',
+                    'id.max'=>'ID must be a single number',
+                    'price.required'=>'Please put your price',
+                    'shortdesc.required'=>'Please give Short Description',
+                   
+                    'desc.required'=>'Please give  Description',
+                    'phone.required'=>'Please put your name',
+    
+                    'name.min'=>'Name must be greater than 2 charcters'
+                ]
+            );
+            $var = Package::where('id',$request->id)->first();
+            $var->name= $request->name;
+            $var->id = $request->id;
+            $var->price = $request->price;
+            $var->shortdesc=$request->shortdesc;
+            $var->desc=$request->desc;
+            $var->agentname=$request->agentname;
+            $var->startingdate=$request->startingdate;
+            $var->enddate=$request->enddate;
+            $var->bookingdeadline=$request->bookingdeadline;
+           
+            $var->save();
+            return redirect()->route('admins.packagelist');
+        }
+    
+
+
+    public function Packagedelete(Request $request){
+        $var = Package::where('id',$request->id)->first();
+        $var->delete();
+        return redirect()->route('admins.packagelist');
+    }
+
     
 
 

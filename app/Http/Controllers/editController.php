@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\user;
+use App\Models\admin;
 
 class editController extends Controller
 {
@@ -38,4 +39,39 @@ class editController extends Controller
         session()->put('userId',$user->id);
         return redirect(route('editprofile'));
     }
+
+
+    ///////////////////////////////-----AdminMyProfileHasnat-------//////////////////////////////
+
+
+    public function admineditProfile()
+    {
+        $admin =admin::where('id',Session()->get('adminId'))->first();
+        return view('pages.admin.admineditprofile')->with('admin',$admin);
+    }
+    public function adminupdateData(Request $req)
+    {
+        $admin =admin::where('id',Session()->get('adminId'))->first();
+        $this->validate(
+            $req,
+            [
+                'name'=>'required|min:4|max:50',
+                'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+                'password'=>'required|between:3,12',
+                'Confirm_Password'=>'required|same:password'
+            ],
+            
+            );
+        
+        $admin -> name = $req->name;
+        $admin -> email = $req->email;
+        $admin -> phone = $req->phone;
+        $admin -> password = $req->password;
+        $admin->save();
+
+        session()->put('user',$admin->name);
+        session()->put('userId',$admin->id);
+        return redirect(route('admineditprofile'));
+    }
+    
 }
