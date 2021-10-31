@@ -5,7 +5,7 @@
 
 <div class="row">
   @foreach ($events as $event)
-    <a href="{{route('home')}}">
+    <a href="/eventdetails/{{$event->id}}">
       <div class="image-cards col-md-3">
           <div class="image-card">
               <div class="image-card-banner">

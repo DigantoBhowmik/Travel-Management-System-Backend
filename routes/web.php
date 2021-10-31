@@ -58,6 +58,8 @@ Route::get('/createevents', [eventController::class, 'event'])->name('createeven
 Route::get('/delete/{id}', [eventController::class, 'delete']);
 Route::get('/editevent/{id}', [eventController::class, 'editevent'])->name('editevent');
 Route::post('/editevent', [eventController::class, 'updateEvent'])->name('editevent');
+Route::get('/bookevent/{id}', [packageController::class, 'whoBookedEvent']);
+Route::post('/eventdetails', [orderController::class, 'confirmevent'])->name('confirmevent');
 
 
 

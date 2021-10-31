@@ -1,6 +1,21 @@
 @extends('layouts.app')
 @section('contain')
-{{$msg}}
+<style>
+  table{
+  table-layout:fixed;
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+th.from, th.date {
+  width: 15%;
+}
+th.subject{
+  width: 70%;
+}
+td{
+  word-wrap: break-word;
+}
+</style>
     <div class="createPart">
       <legend > Add Package </legend>  
         <div >
@@ -73,7 +88,7 @@
                       <td>{{$package->name}}</td>
                       <td>{{$package->price}}</td>
                       <td>{{$package->shortdesc}}</td>
-                      <td>{{$package->desc}}</td>
+                      <td >{{$package->desc}}</td>
                       <td><a href="/book/{{$package->id}}">Booking Details</a></td>
                       <td><a href="/editpackage/{{$package->id}}">Edit</a></td>
                       <td><a href="/delete/{{$package->id}}">Delete</a></td> 

@@ -15,8 +15,7 @@ class packageController extends Controller
     {
         
         $packages=Package::where('agentId',Session()->get('userId'))->get();
-        // $msg='fuck';
-        // return view('pages.agent.createpackages',['packages'=>$packages,'msg'=>$msg]);
+        
         return view('pages.agent.createpackages')->with('packages',$packages);
     }
 
@@ -97,11 +96,20 @@ class packageController extends Controller
     public function whoBooked(Request $request)
     {
         $id= $request->id;
-        $srequest = DB::table('order')
-            ->leftJoin('users','order.u_id','=' , 'users.id')
-            ->select('order.*', 'users.name')
-            ->where('order.p_id',$id)->get();
-        // $package= order::join('user','order.u_id',"=",'user.id')::where('u_id',$id)->first();
-        return $srequest;
+        $package = DB::table('order_packages')
+            ->leftJoin('users','order_packages.userId','=' , 'users.id')
+            ->select('order_packages.id', 'users.name','users.email','users.phone')
+            ->where('order_packages.packageId',$id)->get();
+        return view('pages.agent.bookpackage')->with('packages',$package);
+    }
+    public function whoBookedEvent(Request $request)
+    {
+        $id= $request->id;
+        $event = DB::table('order_events')
+            ->leftJoin('users','order_events.userId','=' , 'users.id')
+            ->select('order_events.id', 'users.name','users.email','users.phone')
+            ->where('order_events.eventId',$id)->get();
+        
+        return view('pages.agent.bookevent')->with('events',$event);
     }
 }

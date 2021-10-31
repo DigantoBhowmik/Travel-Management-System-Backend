@@ -1,5 +1,24 @@
 @extends('layouts.app')
 @section('contain')
+<style>
+  table{
+  table-layout:fixed;
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+th.from, th.date {
+  width: 15%;
+}
+th.subject{
+  width: 70%;
+}
+td{
+  word-wrap: break-word;
+}
+</style>
+    <div class="createPart">
+      <legend > Add event </legend>  
+        <div >
           <form method="POST" action="{{route('createevents')}}">
             {{csrf_field()}}
             <div class="mb-3">
@@ -66,9 +85,49 @@
                  @enderror
               </div>
 
-              <input type="submit" name="submit" value="Submit" class="btn btn-primary login_button">
-          </form>  
+              <input type="submit" name="submit" value="Add Event" class="btn btn-primary login_button">
+          </form>
         </div>
         
     </div>
+    <fieldset>
+      <br>
+      <legend> My event </legend>
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Short Description</th>
+              <th scope="col">Description</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              @foreach ($events as $event)
+              
+                  <tr>
+                    
+                      <td>{{$event->name}}</td>
+                      <td>{{$event->price}}</td>
+                      <td>{{$event->shortdesc}}</td>
+                      <td >{{$event->desc}}</td>
+                      <td><a href="/bookevent/{{$event->id}}">Booking Details</a></td>
+                      <td><a href="/editevent/{{$event->id}}">Edit</a></td>
+                      <td><a href="/delete/{{$event->id}}">Delete</a></td> 
+                  </tr>
+                
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    </fieldset>
+
+            
+        
 @endsection
