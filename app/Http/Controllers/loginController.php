@@ -42,7 +42,7 @@ class loginController extends Controller
         if($admin){
             session()->put('adminId',$admin->id);
             session()->put('admin',$admin->name);
-           // return redirect()->route('home');
+            session()->put('adminEmail',$admin->email);
             return redirect()->route('adminDash');
         }
         return redirect()->route('admin')->with('err2', 'These credentials do not match our records');
@@ -53,5 +53,9 @@ class loginController extends Controller
     public function logout(){
         session()->flush();
         return redirect()->route('home');
+    }
+    public function Alogout(){
+        session()->flush();
+        return redirect()->route('admin');
     }
 }

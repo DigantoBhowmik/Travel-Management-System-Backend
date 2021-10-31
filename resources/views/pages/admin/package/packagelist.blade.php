@@ -1,7 +1,10 @@
 @extends('layouts.adminapp')
 @section('contain')
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <h3 class="mb-2 text-primary">Packages List</h3>
+    </div>
     <table class="table table-borded">
-
+    
      
         <tr>
             <th>Name</th>
@@ -25,9 +28,8 @@
                 <td>{{$Package->startingdate}}</td>
                 <td>{{$Package->enddate}}</td>
                 <td>{{$Package->bookingdeadline}}</td>
-                <td>{{$Package->role}}</td>
-                <td><a href="/admins/edit/{{$Package->id}}/{{$Package->name}}">Edit</a></td>
-                <td><a href="/admins/delete/{{$Package->id}}/{{$Package->name}}">Delete</a></td>
+                <td><a href="/admins/Packageedit/{{$Package->id}}/{{$Package->name}}">Edit</a></td>
+                <td><a href="/admins/Packagedelete/{{$Package->id}}/{{$Package->name}}">Delete</a></td>
             </tr>
         @endforeach
     </table>

@@ -2,6 +2,9 @@
 @section('contain')
 <div class="register_page">
         <div class="register_body">
+        <div style="clear: both; height: 100%; text-align: center">
+                <h2 class="mb-2 text-primary">Create An User-Role</h2>
+              </div>
           <form action="{{route('admin.Useredit')}}"  method="post">
             {{csrf_field()}}
             <input type="hidden" name="id" value="{{$user->id}}">

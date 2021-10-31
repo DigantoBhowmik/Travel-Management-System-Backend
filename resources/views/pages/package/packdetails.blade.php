@@ -1,18 +1,43 @@
 @extends('layouts.app')
 @section('contain')
+<style>
+    table{
+        align-items: center;
+    }
+    table, tr, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 20px;
+    }
+    
+</style>
 <br>
     <legend> Package Details </legend>
-        <p>{{$packages->image}}</p>
-        <br>
-        <p>Name: {{$packages->name}}</p>
-        <br>
-        <p>Price: {{$packages->price}}</p>
-        <br>
-        <p>Short Description: {{$packages->shortdesc}}</p>
-        <br>
-        <p>Description: {{$packages->desc}}</p>
-        <br>
-        <p>Agent Name: {{$packages->agentId}}</p>
+    
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name:</td>
+                    <td>{{$packages->name}}</td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td>{{$packages->price}}</td>
+                </tr>
+                <tr>
+                    <td>Short Description:</td>
+                    <td>{{$packages->shortdesc}}</td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td>{{$packages->desc}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        
+        <p>Agent Name: {{$packages->agentname}}</p>
         <br>
 
         <div class="createPart">
@@ -21,27 +46,13 @@
                 <form method="POST" action="{{route('confirmpackage')}}">
                   {{csrf_field()}}
 
-        <div class="mb-3" hidden>
-            <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Agent Name</label>
-            <input type="text" name="agentname" class="form-control" id="formGroupExampleInput" value="{{$packages->agentId}}">
-            @error('agentId')
-              <span class="text-danger">{{$message}}</span>
-             @enderror
-        </div>
-        <div class="mb-3" hidden>
-            <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Agent Name</label>
-            <input type="text" name="userId" class="form-control" id="formGroupExampleInput" value="{{Session()->get('userId')}}">
-            @error('userId')
-              <span class="text-danger">{{$message}}</span>
-             @enderror
-        </div>
+        
+        
 
-        <div class="mb-3" hidden>
+        <div class="mb-3" >
             <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Pack Name</label>
-            <input type="text" name="packageId" class="form-control" id="formGroupExampleInput" value="{{$packages->packageId}}">
-            @error('packageId')
-              <span class="text-danger">{{$message}}</span>
-             @enderror
+            <input type="text" name="packageId" class="form-control" id="formGroupExampleInput" value="{{$packages->id}}">
+           
         </div>
 
         <div class="mb-3" >
@@ -52,7 +63,7 @@
              @enderror
         </div>
 
-          
+          {{Session()->get('userId')}}
           <input type="submit" name="submit" value="Confirm Booking" class="btn btn-primary login_button">
       </form>  
     </div>

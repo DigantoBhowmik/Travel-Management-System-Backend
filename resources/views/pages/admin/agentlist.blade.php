@@ -1,7 +1,9 @@
 @extends('layouts.adminapp')
 @section('contain')
     <table class="table table-borded">
-
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <h3 class="mb-2 text-primary">Agent List</h3>
+        </div>
      
         <tr>
             <th>Name</th>
