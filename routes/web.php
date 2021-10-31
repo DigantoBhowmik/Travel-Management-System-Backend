@@ -34,9 +34,12 @@ Route::post('/profile', [editController::class, 'updateData'])->name('editprofil
 
 //package
 Route::get('/packages', [packageController::class, 'packagelist'])->name('packages');
+Route::get('/packagedetails/{id}', [packageController::class, 'packdetails'])->name('packdetails');
 Route::post('/createpackages', [packageController::class, 'createpackages'])->name('createpackages');
 Route::get('/createpackages', [packageController::class, 'package'])->name('createpackages');
-Route::get('/packagedetails/{id}', [packageController::class, 'packdetails'])->name('packdetails');
+Route::get('/delete/{id}', [packageController::class, 'delete']);
+Route::get('/editpackage/{id}', [packageController::class, 'editpackage'])->name('editpackage');
+Route::post('/editpackage', [packageController::class, 'updatePackage'])->name('editpackage');
 
 //event
 Route::get('/events', [eventController::class, 'eventlist'])->name('events');

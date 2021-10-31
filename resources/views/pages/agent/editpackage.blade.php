@@ -1,68 +1,38 @@
 @extends('layouts.app')
 @section('contain')
-<br>
-<legend> My Package </legend>
-<div>
-  <table class="table">
-    <thead>
-      <tr>
-        
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Short Description</th>
-        <th scope="col">Description</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      
-        @foreach ($packages as $package)
-        
-            <tr>
-              
-                <td>{{$package->name}}</td>
-                <td>{{$package->price}}</td>
-                <td>{{$package->shortdesc}}</td>
-                <td>{{$package->desc}}</td>
-                <td><a href="/editpackage/{{$package->id}}">Edit</a></td>
-                <td><a href="/delete/{{$package->id}}">Delete</a></td> 
-            </tr>
-          
-       @endforeach
-    </tbody>
-  </table>
-</div>
+
     <div class="createPart">
       <legend > Add Package </legend>  
         <div >
-          <form method="POST" action="{{route('createpackages')}}">
+          <form method="POST" action="{{route('editpackage')}}">
             {{csrf_field()}}
+            <div class="mb-6" hidden>
+                <input type="text" name="id" class="form-control" id="formGroupExampleInput" value="{{$package->id}}">
+            </div>
             <div class="mb-6">
                 <label for="formGroupExampleInput" class="form-label">Package Name :</label>
-                <input type="text" name="name" class="form-control" id="formGroupExampleInput" >
+                <input type="text" name="name" class="form-control" id="formGroupExampleInput" value="{{$package->name}}">
                 @error('name')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Price :</label>
-                <input type="text" name="price" class="form-control" id="formGroupExampleInput" >
+                <input type="text" name="price" class="form-control" id="formGroupExampleInput" value="{{$package->price}}">
                 @error('price')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>
               <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Short Description</label>
-                <input type="text" name="shortdesc" class="form-control" id="formGroupExampleInput" >
+                <input type="text" name="shortdesc" class="form-control" id="formGroupExampleInput" value="{{$package->shortdesc}}">
                 @error('shortdesc')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>
               <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc" >{{$package->desc}}</textarea>
                 @error('desc')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
@@ -75,7 +45,7 @@
                  @enderror
               </div>
               
-              <input type="submit" name="submit" value="Add Package" class="btn btn-primary login_button">
+              <input type="submit" name="submit" value="Update Package" class="btn btn-primary login_button">
           </form>  
         </div>
         
