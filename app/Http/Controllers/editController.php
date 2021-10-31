@@ -70,8 +70,8 @@ class editController extends Controller
         $admin -> password = $req->password;
         $admin->save();
 
-        session()->put('user',$admin->name);
-        session()->put('userId',$admin->id);
+        session()->put('admin',$admin->name);
+        session()->put('adminId',$admin->id);
         return redirect(route('admineditprofile'));
     }
     
