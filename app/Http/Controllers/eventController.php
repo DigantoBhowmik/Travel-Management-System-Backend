@@ -70,7 +70,7 @@ class eventController extends Controller
     {
         $id= $request->id;
         $events= event::where('id',$id)->first();
-        return view('pages.agent.editevent')->with('events',$events);
+        return view('pages.agent.editevent')->with('event',$events);
     }
     public function updateEvent(Request $req)
     {

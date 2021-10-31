@@ -10,6 +10,7 @@ use App\Http\Controllers\adminsController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\orderController;
+use App\Http\Controllers\userBooking;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,10 +46,10 @@ Route::get('/delete/{id}', [packageController::class, 'delete']);
 Route::get('/book/{id}', [packageController::class, 'whoBooked']);
 Route::get('/editpackage/{id}', [packageController::class, 'editpackage'])->name('editpackage');
 Route::post('/editpackage', [packageController::class, 'updatePackage'])->name('editpackage');
-
 Route::post('/packagedetails', [orderController::class, 'confirmPackage'])->name('confirmpackage');
 
-
+//userbooking 
+Route::get('/mybooking', [userBooking::class, 'mybooking'])->name('mybooking');
 
 //event
 Route::get('/events', [eventController::class, 'eventlist'])->name('events');

@@ -2,37 +2,37 @@
 @section('contain')
 
     <div class="createPart">
-      <legend > Add Package </legend>  
+      <legend > Add event </legend>  
         <div >
-          <form method="POST" action="{{route('editpackage')}}">
+          <form method="POST" action="{{route('editevent')}}">
             {{csrf_field()}}
             <div class="mb-6" hidden>
-                <input type="text" name="id" class="form-control" id="formGroupExampleInput" value="{{$package->id}}">
+                <input type="text" name="id" class="form-control" id="formGroupExampleInput" value="{{$event->id}}">
             </div>
             <div class="mb-6">
-                <label for="formGroupExampleInput" class="form-label">Package Name :</label>
-                <input type="text" name="name" class="form-control" id="formGroupExampleInput" value="{{$package->name}}">
+                <label for="formGroupExampleInput" class="form-label">event Name :</label>
+                <input type="text" name="name" class="form-control" id="formGroupExampleInput" value="{{$event->name}}">
                 @error('name')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Price :</label>
-                <input type="text" name="price" class="form-control" id="formGroupExampleInput" value="{{$package->price}}">
+                <input type="text" name="price" class="form-control" id="formGroupExampleInput" value="{{$event->price}}">
                 @error('price')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>
               <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Short Description</label>
-                <input type="text" name="shortdesc" class="form-control" id="formGroupExampleInput" value="{{$package->shortdesc}}">
+                <input type="text" name="shortdesc" class="form-control" id="formGroupExampleInput" value="{{$event->shortdesc}}">
                 @error('shortdesc')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>
               <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc" >{{$package->desc}}</textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc" >{{$event->desc}}</textarea>
                 @error('desc')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
@@ -40,7 +40,7 @@
 
               <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Image</label>
-                <input class="form-control" id="exampleFormControlTextarea1" rows="3" name="image" value="{{$package->image}}"> 
+                <input class="form-control" id="exampleFormControlTextarea1" rows="3" name="image" value="{{$event->image}}"> 
                 @error('image')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
@@ -53,7 +53,7 @@
                  @enderror
               </div>
               
-              <input type="submit" name="submit" value="Update Package" class="btn btn-primary login_button">
+              <input type="submit" name="submit" value="Update event" class="btn btn-primary login_button">
           </form>  
         </div>
         
