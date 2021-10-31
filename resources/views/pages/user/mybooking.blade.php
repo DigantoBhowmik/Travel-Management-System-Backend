@@ -4,7 +4,7 @@
 <h1 style="align-content: center">Go and Book any package</h1>
 @else
 <div>
-    <h1>Packages Book By You</h1>
+    <h1>Packages Booked By You</h1>
     <table class="table">
     <thead>
         <tr>
@@ -38,7 +38,7 @@
         <h1 style="align-content: center">Go and Book any event</h1>
         @else
             <div>
-                <h1>Events Book By You</h1>
+                <h1>Events Booked By You</h1>
                 <table class="table">
                 <thead>
                     <tr>

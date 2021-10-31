@@ -49,7 +49,7 @@ Route::post('/editpackage', [packageController::class, 'updatePackage'])->name('
 Route::post('/packagedetails', [orderController::class, 'confirmPackage'])->name('confirmpackage')->middleware('ValidUser')->middleware('CheckUser');
 
 //userbooking 
-Route::get('/mybooking', [userBooking::class, 'mybooking'])->name('mybooking');
+Route::get('/mybooking', [userBooking::class, 'mybooking'])->name('mybooking')->middleware('ValidUser')->middleware('CheckUser');
 
 //event
 Route::get('/events', [eventController::class, 'eventlist'])->name('events');
