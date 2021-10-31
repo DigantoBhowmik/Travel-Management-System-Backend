@@ -12,11 +12,11 @@
      <img  id="logo" src="{{asset('asset\image\ghurifiri2.png')}}" alt=""> 
         <nav class=""  >
             <ul class="nav-bar">
-                <li><a href={{route('adminDash')}}>Home</a></li>
-                <li><a href={{route('admins.list')}}> Admins </a></li>
-                <li><a href="">Packages</a></li>
-                <li><a href="">Agents</a></li>
-                <li><a href="">Users</a></li>
+                <li><a href="{{route('adminDash')}}">Home</a></li>
+                <li><a href="{{route('admins.list')}}"> Admins </a></li>
+                <li><a href="{{route('admins.Packagelist')}}">Packages</a></li>
+                <li><a href="{{route('admins.Agentlist')}}">Agents</a></li>
+                <li><a href="{{route('admins.Userlist')}}">Users</a></li> 
               </ul>
         </nav>
       

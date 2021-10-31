@@ -8,6 +8,7 @@ use App\Models\Package;
 
 class packageController extends Controller
 {
+    //
     public function package()
     {
         $packages=Package::where('agentId',Session()->get('userId'))->get();
@@ -67,18 +68,18 @@ class packageController extends Controller
     {
         $id= $req->id;
         $packages = package::where('id',$id)->first();
-         $this->validate(
-             $req,
-             [
-                 'name'=>'required|min:4|max:50'.$packages->id,
-                 'price'=>'required',
-                 'shortdesc'=>'required',
-                 'desc'=>'required',
-                 'agentname'=>'required'
+        // $this->validate(
+        //     $req,
+        //     [
+        //         'name'=>'required|min:4|max:50'.$packages->id,
+        //         'price'=>'required',
+        //         'shortdesc'=>'required',
+        //         'desc'=>'required',
+        //         'agentname'=>'required'
 
-             ],
+        //     ],
             
-             );
+        //     );
         
         $packages -> name = $req->name;
         $packages -> price = $req->price;
@@ -88,5 +89,4 @@ class packageController extends Controller
         $packages->save();
         return redirect(route('createpackages'));
     }
-
 }

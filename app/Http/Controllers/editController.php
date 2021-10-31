@@ -7,9 +7,7 @@ use App\Models\user;
 
 class editController extends Controller
 {
-    public function __construct(){
-        $this->middleware('ValidUser');
-     }
+    
     public function editProfile()
     {
         $user=user::where('id',Session()->get('userId'))->first();

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('contain')
-
+<br>
     <legend> Packages </legend>
 <br>
 
