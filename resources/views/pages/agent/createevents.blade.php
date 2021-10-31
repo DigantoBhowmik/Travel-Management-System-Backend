@@ -62,7 +62,7 @@ td{
               </div>
 
               <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Short Discription: </label>
+                <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Short Description: </label>
                 <input type="text" name="shortdesc" class="form-control" id="formGroupExampleInput" ></textarea>
                 @error('shortdesc')
                   <span class="text-danger">{{$message}}</span>
@@ -73,6 +73,14 @@ td{
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Description: </label>
                 <textarea type="text" name="desc" class="form-control" id="formGroupExampleInput" ></textarea>
                 @error('desc')
+                  <span class="text-danger">{{$message}}</span>
+                 @enderror
+              </div>
+
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Image</label>
+                <input class="form-control" id="exampleFormControlTextarea1" rows="3" name="image">
+                @error('image')
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>

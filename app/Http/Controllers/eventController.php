@@ -33,6 +33,7 @@ class eventController extends Controller
                 'deadline'=>'required',
                 'shortdesc'=>'required',
                 'desc'=>'required',
+                'image'=>'required',
                 'agentname'=>'required',
                 
 
@@ -47,6 +48,7 @@ class eventController extends Controller
         $events -> deadline = $req->deadline;
         $events -> shortdesc = $req->shortdesc;
         $events -> desc = $req->desc;
+        $events -> image = $req->image;
         $events -> agentId = $req->agentname;
         $events->save();
         return redirect(route('createevents'));
@@ -81,6 +83,7 @@ class eventController extends Controller
         //         'price'=>'required',
         //         'shortdesc'=>'required',
         //         'desc'=>'required',
+        //         'image'=>'required',
         //         'agentname'=>'required'
 
         //     ],
@@ -91,6 +94,7 @@ class eventController extends Controller
         $events -> price = $req->price;
         $events -> shortdesc = $req->shortdesc;
         $events -> desc = $req->desc;
+        $events -> image = $req->image;
         $events -> agentId = $req->agentname;
         $events->save();
         return redirect(route('createevents'));

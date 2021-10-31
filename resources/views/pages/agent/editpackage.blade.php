@@ -37,6 +37,14 @@
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>
+
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Image</label>
+                <input class="form-control" id="exampleFormControlTextarea1" rows="3" name="image" value="{{$package->image}}"> 
+                @error('image')
+                  <span class="text-danger">{{$message}}</span>
+                 @enderror
+              </div>
               <div class="mb-3" hidden>
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Agent Name</label>
                 <input type="text" name="agentname" class="form-control" id="formGroupExampleInput" value="{{Session()->get('userId')}}">

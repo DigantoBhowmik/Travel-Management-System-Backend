@@ -8,7 +8,17 @@
           @if(Session::has('msg'))
           <p class="alert alert-success">{{Session::get('msg')}}</p>
           @endif
-        
+
+          <tr>
+            <th> 
+                
+            </th>
+          </tr>
+      
+                <div style="clear: both; height: 100%; text-align: center">
+                <h2 class="mb-2 text-primary">Create An admin</h2>
+              </div>
+          
           <form method="POST" action="{{route('admins.create')}}">
             {{csrf_field()}}
             <div class="mb-3">
