@@ -72,8 +72,17 @@ Route::get('/admins/Useredit/{id}/{name}',[adminsController::class,'Useredit']);
 Route::post('/admins/Useredit',[adminsController::class,'UsereditSubmit'])->name('admin.Useredit');
 Route::get('/admins/Userdelete/{id}/{name}',[adminsController::class,'Userdelete']);
 
-//Admin Agent List
-Route::get('/admins/Agent', [adminsController::class, 'Agentlist'])->name('admins.Agentlist');
-
 //Admin Package List
 Route::get('/admins/Packagelist', [adminsController::class, 'Packagelist'])->name('admins.Packagelist');
+
+
+
+
+
+
+
+//Admin Agent List
+Route::get('/admins/Agent', [adminsController::class, 'Agentlist'])->name('admins.Agentlist');
+Route::get('/admins/Agentedit/{id}/{name}',[adminsController::class,'Agentedit']);
+Route::post('/admins/Agentedit',[adminsController::class,'AgenteditSubmit'])->name('admin.Agentedit');
+Route::get('/admins/Agentdelete/{id}/{name}',[adminsController::class,'Agentdelete']);

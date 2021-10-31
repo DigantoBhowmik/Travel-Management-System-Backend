@@ -2,14 +2,10 @@
 @section('contain')
 <div class="register_page">
         <div class="register_body">
-          <form action="{{route('admin.Useredit')}}"  method="post">
+          <form action="{{route('admin.Agentedit')}}"  method="post">
             {{csrf_field()}}
             <input type="hidden" name="id" value="{{$user->id}}">
             <input type="hidden" name="role" value="{{$user->role}}">
-            <!-- <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Role :</label>
-                <input type="text" name="role" value="{{$user->role}}"  class="form-control" id="formGroupExampleInput" >
-            </div> -->
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Full Name :</label>
                 <input type="text" name="name" value="{{$user->name}}"  class="form-control" id="formGroupExampleInput" >
