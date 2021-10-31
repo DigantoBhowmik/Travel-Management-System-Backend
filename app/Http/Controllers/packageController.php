@@ -15,6 +15,8 @@ class packageController extends Controller
     {
         
         $packages=Package::where('agentId',Session()->get('userId'))->get();
+        // $msg='fuck';
+        // return view('pages.agent.createpackages',['packages'=>$packages,'msg'=>$msg]);
         return view('pages.agent.createpackages')->with('packages',$packages);
     }
 

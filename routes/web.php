@@ -9,6 +9,7 @@ use App\Http\Controllers\packageController;
 use App\Http\Controllers\adminsController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\eventController;
+use App\Http\Controllers\orderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,11 +46,26 @@ Route::get('/book/{id}', [packageController::class, 'whoBooked']);
 Route::get('/editpackage/{id}', [packageController::class, 'editpackage'])->name('editpackage');
 Route::post('/editpackage', [packageController::class, 'updatePackage'])->name('editpackage');
 
+Route::post('/packagedetails', [orderController::class, 'confirmPackage'])->name('confirmpackage');
+
+
+
 //event
 Route::get('/events', [eventController::class, 'eventlist'])->name('events');
+Route::get('/eventdetails/{id}', [eventController::class, 'eventdetails'])->name('eventdetails');
+Route::post('/createevents', [eventController::class, 'createevents'])->name('createevents');
+Route::get('/createevents', [eventController::class, 'event'])->name('createevents');
+Route::get('/delete/{id}', [eventController::class, 'delete']);
+Route::get('/editevent/{id}', [eventController::class, 'editevent'])->name('editevent');
+Route::post('/editevent', [eventController::class, 'updateEvent'])->name('editevent');
 
 
 
+//AGENT
+Route::post('/createpackages', [packageController::class, 'createpackages'])->name('createpackages')->middleware('ValidUser')->middleware('CheckRole');
+Route::get('/createpackages', [packageController::class, 'package'])->name('createpackages')->middleware('ValidUser')->middleware('CheckRole');
+Route::post('/createevents', [eventController::class, 'createevents'])->name('createevents')->middleware('ValidUser')->middleware('CheckRole');
+Route::get('/createevents', [eventController::class, 'event'])->name('event')->middleware('ValidUser')->middleware('CheckRole');
 
 
 //Admin Part
