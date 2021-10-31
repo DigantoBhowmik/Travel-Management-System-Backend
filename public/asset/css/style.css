@@ -307,7 +307,9 @@ height: 500px;
     margin-right: 100px;
 }
 .register_page{
-    height: 120vh;
+    height: auto;
+    margin-top: 100px;
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -320,7 +322,7 @@ height: 500px;
     margin:auto;
     
     padding: 40px;
-    padding-top: 47px;
+
     border-radius: 10px;
 }
 .createPart{
