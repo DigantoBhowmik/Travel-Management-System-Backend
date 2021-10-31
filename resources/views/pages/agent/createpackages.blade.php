@@ -43,7 +43,7 @@
                  @enderror
               </div>
               
-              <input type="submit" name="submit" value="REGISTER" class="btn btn-primary login_button">
+              <input type="submit" name="submit" value="SUBMIT" class="btn btn-primary login_button">
           </form>  
         </div>
         
