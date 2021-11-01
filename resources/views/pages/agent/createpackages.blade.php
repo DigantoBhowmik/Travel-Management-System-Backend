@@ -16,6 +16,11 @@ td{
   word-wrap: break-word;
 }
 </style>
+@if (Session::has('message'))
+        <div class="alert alert-success" style="margin-top: 20px">{{ Session::get('message') }}</div>
+@endif
+
+<br>
     <div class="createPart">
       <legend > Add Package </legend>  
         <div >
@@ -99,7 +104,7 @@ td{
                       <td >{{$package->desc}}</td>
                       <td><a href="/book/{{$package->id}}">Booking Details</a></td>
                       <td><a href="/editpackage/{{$package->id}}">Edit</a></td>
-                      <td><a href="/delete/{{$package->id}}">Delete</a></td> 
+                      <td><a href="package/delete/{{$package->id}}">Delete</a></td> 
                   </tr>
                 
             @endforeach

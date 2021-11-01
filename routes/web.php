@@ -42,14 +42,14 @@ Route::get('/packages', [packageController::class, 'packagelist'])->name('packag
 Route::get('/packagedetails/{id}', [packageController::class, 'packdetails'])->name('packdetails');
 Route::post('/createpackages', [packageController::class, 'createpackages'])->name('createpackages')->middleware('ValidUser')->middleware('CheckRole');
 Route::get('/createpackages', [packageController::class, 'package'])->name('createpackages')->middleware('ValidUser')->middleware('CheckRole');
-Route::get('/delete/{id}', [packageController::class, 'delete'])->middleware('CheckRole');
+Route::get('package/delete/{id}', [packageController::class, 'delete'])->middleware('CheckRole');
 Route::get('/book/{id}', [packageController::class, 'whoBooked'])->middleware('CheckRole');
 Route::get('/editpackage/{id}', [packageController::class, 'editpackage'])->name('editpackage')->middleware('ValidUser')->middleware('CheckRole');
 Route::post('/editpackage', [packageController::class, 'updatePackage'])->name('editpackage')->middleware('ValidUser')->middleware('CheckRole');
-Route::post('/packagedetails', [orderController::class, 'confirmPackage'])->name('confirmpackage')->middleware('ValidUser')->middleware('CheckUser');
+Route::post('/packagedetails', [orderController::class, 'confirmPackage'])->name('confirmpackage')->middleware('ValidUser');
 
 //userbooking 
-Route::get('/mybooking', [userBooking::class, 'mybooking'])->name('mybooking')->middleware('ValidUser')->middleware('CheckUser');
+Route::get('/mybooking', [userBooking::class, 'mybooking'])->name('mybooking')->middleware('ValidUser');
 
 //event
 Route::get('/events', [eventController::class, 'eventlist'])->name('events');
@@ -60,7 +60,7 @@ Route::get('/delete/{id}', [eventController::class, 'delete'])->middleware('Vali
 Route::get('/editevent/{id}', [eventController::class, 'editevent'])->name('editevent')->middleware('ValidUser')->middleware('CheckRole');
 Route::post('/editevent', [eventController::class, 'updateEvent'])->name('editevent')->middleware('ValidUser')->middleware('CheckRole');
 Route::get('/bookevent/{id}', [packageController::class, 'whoBookedEvent'])->middleware('ValidUser')->middleware('CheckRole');
-Route::post('/eventdetails', [orderController::class, 'confirmevent'])->name('confirmevent')->middleware('ValidUser')->middleware('CheckUser');
+Route::post('/eventdetails', [orderController::class, 'confirmevent'])->name('confirmevent')->middleware('ValidUser');
 
 
 

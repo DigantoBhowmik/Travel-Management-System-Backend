@@ -48,7 +48,7 @@ class packageController extends Controller
         $packages -> image = $req->image;
         $packages -> agentId = $req->agentname;
         $packages->save();
-        return redirect(route('createpackages'));
+        return back()->with('message','Your Package Added');
     }
 
     public function packdetails(Request $req)
