@@ -102,6 +102,7 @@ Route::get('/admins/Users', [adminsController::class, 'Userlist'])->name('admins
 Route::get('/admins/Useredit/{id}/{name}',[adminsController::class,'Useredit']);
 Route::post('/admins/Useredit',[adminsController::class,'UsereditSubmit'])->name('admin.Useredit');
 Route::get('/admins/Userdelete/{id}/{name}',[adminsController::class,'Userdelete']);
+Route::get('/admins/orderlist/{id}/{name}',[adminsController::class,'orderlist']);
 
 
 //Admin Package List
@@ -116,6 +117,7 @@ Route::get('/admins/Agent', [adminsController::class, 'Agentlist'])->name('admin
 Route::get('/admins/Agentedit/{id}/{name}',[adminsController::class,'Agentedit']);
 Route::post('/admins/Agentedit',[adminsController::class,'AgenteditSubmit'])->name('admin.Agentedit');
 Route::get('/admins/Agentdelete/{id}/{name}',[adminsController::class,'Agentdelete']);
+Route::get('/admins/item/{id}/{name}',[adminsController::class,'item']);
 
 //logout
 Route::get('/adminlogout', [loginController::class, 'Alogout'])->name('Alogout');

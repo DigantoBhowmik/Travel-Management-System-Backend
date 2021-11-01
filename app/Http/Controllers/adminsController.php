@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\admin;
 use App\Models\User;
 use App\Models\Package;
+use App\Models\Event;
+use Illuminate\Support\Facades\DB;
 use Session;
 class adminsController extends Controller
 {   
@@ -19,12 +21,11 @@ class adminsController extends Controller
         return view('pages.admin.create');
     }
     public function createSubmit(Request $request){
-        $var = new admin();
+        $var = new admin;
         $this->validate(
             $request,
             [
                 'name'=>'required|min:3|max:20',
-                'id'=>'required',
                 'password'=>'required|between:6,15',
                 'cpassword'=>'required|same:password',
                 'email'=>'required|email|max:255|unique:users,email',
@@ -50,15 +51,14 @@ class adminsController extends Controller
 
         
         $var->name= $request->name;
-        $var->id = $request->id;
         $var->email = $request->email;
         $var->phone=$request->phone;
         $var->password=$request->password;
         $var->save();
-        Session::flash('msg','Data Added Succesfully');
+        // session()::flash('msg','Data Added Succesfully');
         session()->put('admin',$var->name);
         session()->put('adminId',$var->id);
-         return redirect()->back();
+        return redirect(route('admins.list'));
         
     }
 
@@ -117,7 +117,6 @@ class adminsController extends Controller
 
         $var = admin::where('id',$request->id)->first();
         $var->name= $request->name;
-        $var->id = $request->id;
         $var->email = $request->email;
         $var->phone=$request->phone;
         $var->phone=$request->phone;
@@ -198,6 +197,19 @@ class adminsController extends Controller
         $var = User::where('id',$request->id)->first();
         $var->delete();
         return redirect()->route('admins.Userlist');
+    }
+    public function orderlist(Request $req)
+    {
+        $event = DB::table('order_events')
+            ->leftJoin('events','order_events.eventId','=' , 'events.id')
+            ->select('order_events.id', 'events.name','events.price','events.startdate','events.enddate')
+            ->where('order_events.userId',$req->id)->get();
+        $package = DB::table('order_packages')
+            ->leftJoin('packages','order_packages.packageId','=' , 'packages.id')
+            ->select('order_packages.id', 'packages.name','packages.price','order_packages.date')
+            ->where('order_packages.userId',$req->id)->get();
+        // return $event;
+        return view('pages.admin.package.orderlist',['events'=>$event,'packages'=>$package,'name'=>$req->name]);
     }
 
 ////////////////////////////////////////////-------Agentlist------///////////////////////////////////////////////
@@ -336,7 +348,12 @@ class adminsController extends Controller
         return redirect()->route('admins.packagelist');
     }
 
-    
+    public function item(Request $req){
+        $id= $req->id;
+        $packages= package::where('id',$id)->get();
+        $events= event::where('id',$id)->get();
+        return view('pages.admin.package.list',['packages'=>$packages,'events'=>$events,'name'=>$req->name]);
+    }
 
 
 

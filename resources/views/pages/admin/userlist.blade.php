@@ -20,6 +20,7 @@
                 <td>{{$user->email}}</td>
                 <td>{{$user->phone}}</td>
                 <td>{{$user->role}}</td>
+                <td><a href="/admins/orderlist/{{$user->id}}/{{$user->name}}">Order List</a></td>
                 <td><a href="/admins/Useredit/{{$user->id}}/{{$user->name}}">Edit</a></td>
                 <td><a href="/admins/Userdelete/{{$user->id}}/{{$user->name}}">Delete</a></td>
             </tr>

@@ -2,6 +2,7 @@
 @section('contain')
     <div class="page">
         <div class="login_body">
+          <h3 style="text-align: center">Admin Login</h3>
           @if (Session::has('err2'))
           <div class="alert alert-info">{{ Session::get('err2') }}</div>
           @endif
