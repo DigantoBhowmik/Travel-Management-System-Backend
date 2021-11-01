@@ -15,6 +15,7 @@
                 <li><a href="{{route('adminDash')}}">Home</a></li>
                 <li><a href="{{route('admins.list')}}"> Admins </a></li>
                 <li><a href="{{route('admins.packagelist')}}">Packages</a></li>
+                <li><a href="{{route('admins.events')}}">Events</a></li>
                 <li><a href="{{route('admins.Agentlist')}}">Agents</a></li>
                 <li><a href="{{route('admins.Userlist')}}">Users</a></li> 
               </ul>

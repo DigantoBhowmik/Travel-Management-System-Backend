@@ -20,6 +20,21 @@ class eventController extends Controller
         return view('pages.event.events')->with('events',$events);
     }
 
+    /////Admin event list
+    function Admineventlist()
+    {
+        $events = event::all();
+        return view('pages.admin.event.adminEventList')->with('events',$events);
+    }
+    public function Admineventdetails(Request $req)
+    {
+        $id= $req->id;
+        $events= event::where('id',$id)->first();
+        return view('pages.admin.event.adminEventDetails')->with('events',$events);
+    }
+
+    /////////////////////////
+
     public function createevents(Request $req)
     {
         $events = new event;

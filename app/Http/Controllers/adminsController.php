@@ -56,8 +56,7 @@ class adminsController extends Controller
         $var->password=$request->password;
         $var->save();
         Session::flash('msg','Data Added Succesfully');
-        session()->put('admin',$var->name);
-        session()->put('adminId',$var->id);
+        
          return redirect()->back();
         
     }
@@ -319,10 +318,9 @@ class adminsController extends Controller
             $var->price = $request->price;
             $var->shortdesc=$request->shortdesc;
             $var->desc=$request->desc;
-            $var->agentname=$request->agentname;
-            $var->startingdate=$request->startingdate;
-            $var->enddate=$request->enddate;
-            $var->bookingdeadline=$request->bookingdeadline;
+            $var->agentID=$request->agentID;
+            $var->image=$request->image;
+
            
             $var->save();
             return redirect()->route('admins.packagelist');

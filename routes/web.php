@@ -81,7 +81,7 @@ Route::post('/admin', [loginController::class, 'adminloginConfirm'])->name('admi
 //Admin dashboard
 Route::get('/admin/dash', [pageController::class,'adminDash'])->name('adminDash')->middleware('ValidAdmin');
 
-//Create AdminAdmin
+//Create Admin
 Route::get('/admins/create',[adminsController::class,'create'])->name('admins.create');
 Route::post('/admins/create',[adminsController::class,'createSubmit'])->name('admins.create');
 
@@ -113,6 +113,11 @@ Route::get('/admins/Agent', [adminsController::class, 'Agentlist'])->name('admin
 Route::get('/admins/Agentedit/{id}/{name}',[adminsController::class,'Agentedit']);
 Route::post('/admins/Agentedit',[adminsController::class,'AgenteditSubmit'])->name('admin.Agentedit');
 Route::get('/admins/Agentdelete/{id}/{name}',[adminsController::class,'Agentdelete']);
+
+//Admin Event list
+Route::get('admin/events', [eventController::class, 'Admineventlist'])->name('admins.events');
+Route::get('admin/eventdetails/{id}/{name}', [eventController::class, 'Admineventdetails'])->name('admins.eventdetails');
+
 
 //logout
 Route::get('/adminlogout', [loginController::class, 'Alogout'])->name('Alogout');
