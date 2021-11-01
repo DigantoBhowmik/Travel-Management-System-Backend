@@ -48,6 +48,7 @@ class eventController extends Controller
                 'deadline'=>'required',
                 'shortdesc'=>'required',
                 'desc'=>'required',
+                'image'=>'required',
                 'agentname'=>'required',
                 
 
@@ -62,6 +63,7 @@ class eventController extends Controller
         $events -> deadline = $req->deadline;
         $events -> shortdesc = $req->shortdesc;
         $events -> desc = $req->desc;
+        $events -> image = $req->image;
         $events -> agentId = $req->agentname;
         $events->save();
         return redirect(route('createevents'));
@@ -83,7 +85,7 @@ class eventController extends Controller
     {
         $id= $request->id;
         $events= event::where('id',$id)->first();
-        return view('pages.agent.editevent')->with('events',$events);
+        return view('pages.agent.editevent')->with('event',$events);
     }
     public function updateEvent(Request $req)
     {
@@ -96,6 +98,7 @@ class eventController extends Controller
         //         'price'=>'required',
         //         'shortdesc'=>'required',
         //         'desc'=>'required',
+        //         'image'=>'required',
         //         'agentname'=>'required'
 
         //     ],
@@ -106,6 +109,7 @@ class eventController extends Controller
         $events -> price = $req->price;
         $events -> shortdesc = $req->shortdesc;
         $events -> desc = $req->desc;
+        $events -> image = $req->image;
         $events -> agentId = $req->agentname;
         $events->save();
         return redirect(route('createevents'));

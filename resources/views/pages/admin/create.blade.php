@@ -28,13 +28,7 @@
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">ID :</label>
-                <input type="text" name="id" class="form-control" id="formGroupExampleInput" >
-                @error('id')
-                  <span class="text-danger">{{$message}}</span>
-                 @enderror
-              </div>
+              
               
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Email :</label>

@@ -3,7 +3,7 @@
     <div class="page">
         <div class="login_body">
           @if (Session::has('err'))
-          <div class="alert alert-info">{{ Session::get('err') }}</div>
+            <div class="alert alert-info">{{ Session::get('err') }}</div>
           @endif
           <form method="POST" action="{{route('login')}}">
             {{csrf_field()}}

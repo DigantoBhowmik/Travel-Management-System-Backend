@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'ValidAdmin' => \App\Http\Middleware\ValidAdmin::class,
         'ValidUser' => \App\Http\Middleware\ValidUser::class,
         'CheckRole' => \App\Http\Middleware\CheckRole::class,
+        'CheckUser' => \App\Http\Middleware\CheckUser::class,
     ];
 }

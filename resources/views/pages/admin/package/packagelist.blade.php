@@ -12,10 +12,12 @@
             <th>Price</th>
             <th>Short Description</th>
             <th>Description</th>
+
             <th>Agent ID</th>
             
             <th>End Date</th>
             <th>Booiking Deadline</th>
+
         </tr>
         @foreach($Packages as $Package)
             <tr>
@@ -24,9 +26,9 @@
                 <td>{{$Package->price}}</td>
                 <td>{{$Package->shortdesc}}</td>
                 <td>{{$Package->desc}}</td>
+
                 <td>{{$Package->agentID}}</td>
                
-                
                 <td><a href="/admins/Packageedit/{{$Package->id}}/{{$Package->name}}">Edit</a></td>
                 <td><a href="/admins/Packagedelete/{{$Package->id}}/{{$Package->name}}">Delete</a></td>
             </tr>

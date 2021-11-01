@@ -12,20 +12,28 @@ class orderController extends Controller
     public function confirmPackage(Request $req)
     {
         $packages = new OrderPackage();
-        // $this->validate(
-        //     $req,
-        //     [
-        //         'user'=>'required|min:4|max:50',
-        //         'date'=>'required',
-        //     ],
+        $this->validate(
+            $req,
+            [
+                'date'=>'required',
+            ],
             
-        //     );
+            );
         
         $packages -> userId = Session()->get('userId');
         $packages -> packageId = $req->packageId;
         $packages -> date = $req->date;
         $packages->save();
-        return redirect(route('packages'));
-        return $packages;
+        return back()->with('message','Your order confirmed');
+    }
+    public function confirmevent(Request $req)
+    {
+        $packages = new OrderEvent();
+        
+        
+        $packages -> userId = Session()->get('userId');
+        $packages -> eventId = $req->eventId;
+        $packages->save();
+        return back()->with('message','Your order confirmed');
     }
 }

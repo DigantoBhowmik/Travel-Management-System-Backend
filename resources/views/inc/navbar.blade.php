@@ -33,7 +33,7 @@
                     <li><a href="{{route('createpackages')}}">My Packages</a></li>
                     <li><a href="{{route('createevents')}}">My Events</a></li>
                   @else
-                    <li><a href="#">My Booking</a></li>
+                    <li><a href="{{route('mybooking')}}">My Booking</a></li>
                   @endif
                   
                   <li><a href="{{route('logout')}}">Log Out</a></li>

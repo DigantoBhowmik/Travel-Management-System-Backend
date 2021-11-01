@@ -1,6 +1,26 @@
 @extends('layouts.app')
 @section('contain')
-{{$msg}}
+<style>
+  table{
+  table-layout:fixed;
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+th.from, th.date {
+  width: 15%;
+}
+th.subject{
+  width: 70%;
+}
+td{
+  word-wrap: break-word;
+}
+</style>
+@if (Session::has('message'))
+        <div class="alert alert-success" style="margin-top: 20px">{{ Session::get('message') }}</div>
+@endif
+
+<br>
     <div class="createPart">
       <legend > Add Package </legend>  
         <div >
@@ -34,6 +54,14 @@
                   <span class="text-danger">{{$message}}</span>
                  @enderror
               </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Image</label>
+                <input class="form-control" id="exampleFormControlTextarea1" rows="3" name="image">
+                @error('image')
+                  <span class="text-danger">{{$message}}</span>
+                 @enderror
+              </div>
+
               <div class="mb-3" hidden>
                 <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Agent Name</label>
                 <input type="text" name="agentname" class="form-control" id="formGroupExampleInput" value="{{Session()->get('userId')}}">
@@ -73,10 +101,10 @@
                       <td>{{$package->name}}</td>
                       <td>{{$package->price}}</td>
                       <td>{{$package->shortdesc}}</td>
-                      <td>{{$package->desc}}</td>
+                      <td >{{$package->desc}}</td>
                       <td><a href="/book/{{$package->id}}">Booking Details</a></td>
                       <td><a href="/editpackage/{{$package->id}}">Edit</a></td>
-                      <td><a href="/delete/{{$package->id}}">Delete</a></td> 
+                      <td><a href="package/delete/{{$package->id}}">Delete</a></td> 
                   </tr>
                 
             @endforeach

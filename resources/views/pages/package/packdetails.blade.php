@@ -11,6 +11,10 @@
     }
     
 </style>
+@if (Session::has('message'))
+        <div class="alert alert-success" style="margin-top: 20px">{{ Session::get('message') }}</div>
+@endif
+
 <br>
     <legend> Package Details </legend>
     
@@ -37,8 +41,6 @@
         </table>
     </div>
         
-        <p>Agent Name: {{$packages->agentname}}</p>
-        <br>
 
         <div class="createPart">
             <legend > Add Package </legend>  
@@ -49,7 +51,7 @@
         
         
 
-        <div class="mb-3" >
+        <div class="mb-3" hidden>
             <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Pack Name</label>
             <input type="text" name="packageId" class="form-control" id="formGroupExampleInput" value="{{$packages->id}}">
            
@@ -62,9 +64,15 @@
               <span class="text-danger">{{$message}}</span>
              @enderror
         </div>
-
-          {{Session()->get('userId')}}
-          <input type="submit" name="submit" value="Confirm Booking" class="btn btn-primary login_button">
+        @if (Session()->get('role')=='agent')
+        <div class="alert alert-success" style="margin-top: 20px">
+            <h4 class="alert-heading">Just See</h4>
+            <p>You can not buy packages as an agent </p>
+            
+          </div>
+        @else
+            <input type="submit" name="submit" value="Confirm Booking" class="btn btn-primary login_button">
+        @endif
       </form>  
     </div>
     

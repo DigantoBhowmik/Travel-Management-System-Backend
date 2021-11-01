@@ -319,7 +319,7 @@ class adminsController extends Controller
             $var->shortdesc=$request->shortdesc;
             $var->desc=$request->desc;
             $var->agentID=$request->agentID;
-            $var->image=$request->image;
+            
 
            
             $var->save();
