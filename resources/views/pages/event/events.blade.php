@@ -16,7 +16,7 @@
                   <p class="cards-p"><i class="fas fa-bolt"></i>
                     From <span id="price"> {{$event->price}}</span> taka
                 </p>
-                <p><i class="fas fa-clock"></i> Posted :{{$event->created_at}}</p>
+                <p><i class="fas fa-clock"></i> Duration :{{$event->shortdesc}}</p>
               </div>
             
           </div>
