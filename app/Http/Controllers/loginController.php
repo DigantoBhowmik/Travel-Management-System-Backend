@@ -20,9 +20,11 @@ class loginController extends Controller
             session()->put('userId',$check->id);
             session()->put('user',$check->name);
             session()->put('role',$check->role);
-            return redirect()->route('home');
+            //return redirect()->route('home');
+            return $check;
         }
-        return redirect()->route('login')->with('err', 'These credentials do not match our records');
+        //return redirect()->route('login')->with('err', 'These credentials do not match our records');
+        
 
     }
 
