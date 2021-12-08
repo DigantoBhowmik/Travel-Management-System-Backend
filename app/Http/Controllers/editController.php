@@ -17,8 +17,8 @@ class editController extends Controller
     }
     public function updateData(Request $req)
     {
-        $user =user::where('id',Session()->get('userId'))->first();
-        $this->validate(
+        $user =user::where('id',$req->id)->first();
+        /* $this->validate(
             $req,
             [
                 'name'=>'required|min:4|max:50',
@@ -28,7 +28,7 @@ class editController extends Controller
             ],
             
             );
-        
+         */
         $user -> name = $req->name;
         $user -> email = $req->email;
         $user -> phone = $req->phone;
@@ -39,7 +39,8 @@ class editController extends Controller
         session()->put('user',$user->name);
         session()->put('role',$user->role);
         session()->put('userId',$user->id);
-        return redirect(route('editprofile'));
+        //return redirect(route('editprofile'));
+        return $user;
     }
 
 

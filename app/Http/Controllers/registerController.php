@@ -15,7 +15,7 @@ class registerController extends Controller
     public function registration(Request $req)
     {
         $user = new user;
-        $this->validate(
+        /* $this->validate(
             $req,
             [
                 'name'=>'required|min:4|max:50',
@@ -26,7 +26,7 @@ class registerController extends Controller
             
             ],
             
-            );
+            ); */
         
         $user -> name = $req->name;
         $user -> email = $req->email;
@@ -34,10 +34,11 @@ class registerController extends Controller
         $user -> password = $req->password;
         $user->save();
 
-        session()->put('user',$user->name);
+        /* session()->put('user',$user->name);
         session()->put('userId',$user->id);
         session()->put('role',$user->role);
         
-        return redirect(route('home'));
+        return redirect(route('home')); */
+        return $user;
     }
 }
