@@ -9,10 +9,11 @@ use App\Models\admin;
 class editController extends Controller
 {
     
-    public function editProfile()
+    public function editProfile(Request $req)
     {
-        $user=user::where('id',Session()->get('userId'))->first();
-        return view('pages.user.editProfile')->with('user',$user);
+        $user=user::where('id',$req->id)->first();
+        return $user;
+        //return view('pages.user.editProfile')->with('user',$user);
     }
     public function updateData(Request $req)
     {
