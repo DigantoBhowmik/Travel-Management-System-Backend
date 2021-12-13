@@ -24,6 +24,7 @@ class loginController extends Controller
             return $check;
         }
         //return redirect()->route('login')->with('err', 'These credentials do not match our records');
+        return ['message'=>'These credentials do not match our records'];
         
 
     }
