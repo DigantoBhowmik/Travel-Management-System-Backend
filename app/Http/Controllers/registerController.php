@@ -15,18 +15,15 @@ class registerController extends Controller
     public function registration(Request $req)
     {
         $user = new user;
-        /* $this->validate(
+        $this->validate(
             $req,
             [
-                'name'=>'required|min:4|max:50',
-                'email'=>'required|string|email|max:255|unique:users,email,'.$user->id,
-                'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/',
-                'password'=>'required|between:6,12',
-                'Confirm_Password'=>'required|same:password'
+                'email'=>'unique:users,email,'.$user->id
             
             ],
             
-            ); */
+            );
+        
         
         $user -> name = $req->name;
         $user -> email = $req->email;

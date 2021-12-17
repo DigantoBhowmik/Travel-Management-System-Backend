@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\editController;
+use App\Http\Controllers\userBooking;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::post('/login', [loginController::class, 'loginConfirm']);
 Route::get('/profile/{id}', [editController::class, 'editProfile']);
 Route::post('/register', [registerController::class, 'registration']);
 Route::post('/profile', [editController::class, 'updateData']);
+Route::get('/mybookingPackage/{id}', [userBooking::class, 'mybookingPackage']);
+Route::get('/mybookingEvent/{id}', [userBooking::class, 'mybookingEvent']);
