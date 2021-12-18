@@ -20,11 +20,11 @@ class orderController extends Controller
             
             );
         
-        $packages -> userId = Session()->get('userId');
+        $packages -> userId = $req->userId;
         $packages -> packageId = $req->packageId;
         $packages -> date = $req->date;
         $packages->save();
-        return back()->with('message','Your order confirmed');
+        return ['message'=>'Your order confirmed'];
     }
     public function confirmevent(Request $req)
     {
