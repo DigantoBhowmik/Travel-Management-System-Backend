@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\editController;
+use App\Http\Controllers\eventController;
 use App\Http\Controllers\packageController;
 use App\Http\Controllers\userBooking;
 
@@ -32,6 +33,10 @@ Route::get('/mybookingEvent/{id}', [userBooking::class, 'mybookingEvent']);
 //Package
 Route::get('/packages', [packageController::class, 'packagelist']);
 Route::get('/packagedetails/{id}', [packageController::class, 'packdetails']);
+
+//Events
+Route::get('/events', [eventController::class, 'eventlist']);
+Route::get('/eventdetails/{id}', [eventController::class, 'eventdetails']);
 
 //Agent
 Route::post('/createpackages', [packageController::class, 'createpackages']);

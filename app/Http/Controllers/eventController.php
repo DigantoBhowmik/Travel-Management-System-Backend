@@ -17,7 +17,8 @@ class eventController extends Controller
     function eventlist()
     {
         $events = event::all();
-        return view('pages.event.events')->with('events',$events);
+        //return view('pages.event.events')->with('events',$events);
+        return $events;
     }
 
     /////Admin event list
@@ -73,7 +74,8 @@ class eventController extends Controller
     {
         $id= $req->id;
         $events= event::where('id',$id)->first();
-        return view('pages.event.eventdetails')->with('events',$events);
+        //return view('pages.event.eventdetails')->with('events',$events);
+        return $events;
     }
     public function delete(Request $request)
     {
