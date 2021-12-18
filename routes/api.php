@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\editController;
+use App\Http\Controllers\packageController;
 use App\Http\Controllers\userBooking;
 use App\Http\Controllers\ApiController;
 
@@ -55,3 +56,15 @@ Route::get('/agents/list', [ApiController::class, 'Agentlist']);
 
 //Admin User List Route
 Route::get('/users/list', [ApiController::class, 'Userlist']);
+//Package
+Route::get('/packages', [packageController::class, 'packagelist']);
+Route::get('/packagedetails/{id}', [packageController::class, 'packdetails']);
+
+//Agent
+Route::post('/createpackages', [packageController::class, 'createpackages']);
+Route::get('/createpackages/{id}', [packageController::class, 'package']);
+Route::get('/book/{id}', [packageController::class, 'whoBooked']);
+Route::get('/packagedelete/{id}', [packageController::class, 'delete']);
+Route::get('/editpackage/{id}', [packageController::class, 'editpackage']);
+Route::post('/editpackage/{id}', [packageController::class, 'updatePackage']);
+Route::post('/packagedetails', [orderController::class, 'confirmPackage']);
